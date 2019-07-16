@@ -1,0 +1,1279 @@
+import new_struct
+from new_struct import add_struct
+import polarity
+from polarity import polarity_check
+def search(word,tag,string,noun):
+	words=[]
+	polarity=0
+	s=""
+	if(len(tag)==1 and tag[0]=='VBP'):
+		words.append(word[0])
+	elif(len(tag)==8 and tag[0]=='VBG' and tag[1]=='NNS' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='VBP' and tag[5]=='JJ' and tag[6]=='CC' and tag[7]=='JJ'):
+			words.append(word[0])
+			words.append(word[5])
+			words.append(word[7])
+	elif(len(tag)==8 and tag[0]=='VBP' and tag[1]=='RB' and tag[2]=='VB' and tag[3]=='DT' and tag[4]=='VBZ' and tag[5]=='DT' and tag[6]=='JJ' and tag[7]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[6])
+	elif(len(tag)==10 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='NNS' and tag[4]=='TO' and tag[5]=='VB' and tag[6]=='JJ' and tag[7]=='NNS' and tag[8]=='PRP$' and tag[9]=='NNS'):
+			words.append(word[2])
+			words.append(word[5])
+			words.append(word[6])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='NN' and tag[5]=='VBZ' and tag[6]=='RB' and tag[7]=='JJ'):
+			words.append(word[1])
+			words.append(word[5])
+			words.append(word[6])
+			words.append(word[7])
+	elif(len(tag)==7 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='VBZ' and tag[5]=='VBN' and tag[6]=='RB'):
+			words.append(word[5])
+			words.append(word[6])
+	elif(len(tag)==9 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='RB' and tag[4]=='JJ' and tag[5]=='CC' and tag[6]=='JJ' and tag[7]=='TO' and tag[8]=='VB'):
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[6])
+			words.append(word[8])
+	elif(len(tag)==7 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='RBS' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='NNS'):
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='RBS' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='NN' and tag[7]=='NNS'):
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='JJ' and tag[4]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJS' and tag[4]=='NN' and tag[5]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJS' and tag[4]=='NN' and tag[5]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==6 and tag[0]=='NN' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJS' and tag[4]=='NN' and tag[5]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==12 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='JJ' and tag[6]=='CC' and tag[7]=='PRP' and tag[8]=='VBZ' and tag[9]=='RB' and tag[10]=='JJ' and tag[11]=='RB'):
+			words.append(word[2])
+			words.append(word[5])
+			words.append(word[9])
+			words.append(word[10])
+			words.append(word[11])
+	elif(len(tag)==11 and tag[0]=='PRP' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='NN' and tag[7]=='WP' and tag[8]=='NN' and tag[9]=='CC' and tag[10]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==8 and tag[0]=='PRP' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='JJ' and tag[4]=='CC' and tag[5]=='IN' and tag[6]=='DT' and tag[7]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==10 and tag[0]=='NN' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='RB' and tag[4]=='RBR' and tag[5]=='JJ' and tag[6]=='IN' and tag[7]=='DT' and tag[8]=='JJS' and tag[9]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[5])
+			words.append(word[8])
+	elif(len(tag)==12 and tag[0]=='PRP' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='RB' and tag[4]=='JJ' and tag[5]=='CC' and tag[6]=='PRP$' and tag[7]=='NNS' and tag[8]=='VBP' and tag[9]=='JJ' and tag[10]=='TO' and tag[11]=='VB'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[9])
+			words.append(word[11])
+	elif(len(tag)==10 and tag[0]=='IN' and tag[1]=='PRP' and tag[2]=='VBP' and tag[3]=='DT' and tag[4]=='NNS' and tag[5]=='MD' and tag[6]=='VB' and tag[7]=='PRP' and tag[8]=='JJ' and tag[9]=='NN'):
+			words.append(word[2])
+			words.append(word[6])
+	elif(len(tag)==8 and tag[0]=='VBP' and tag[1]=='RB' and tag[2]=='VB' and tag[3]=='IN' and tag[4]=='NNS' and tag[5]=='TO' and tag[6]=='DT' and tag[7]=='NN'):
+			words.append(word[1])
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==8 and tag[0]=='VBP' and tag[1]=='RB' and tag[2]=='VB' and tag[3]=='IN' and tag[4]=='NNS' and tag[5]=='TO' and tag[6]=='DT' and tag[7]=='NN'):
+			words.append(word[1])
+			words.append(word[4])
+	elif(len(tag)==8 and tag[0]=='VBP' and tag[1]=='RB' and tag[2]=='VB' and tag[3]=='IN' and tag[4]=='NNS' and tag[5]=='TO' and tag[6]=='DT' and tag[7]=='NN'):
+			words.append(word[1])
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==10 and tag[0]=='IN' and tag[1]=='PDT' and tag[2]=='DT' and tag[3]=='NNS' and tag[4]=='MD' and tag[5]=='RB' and tag[6]=='VB' and tag[7]=='VBN' and tag[8]=='TO' and tag[9]=='NN'):
+			words.append(word[0])
+			words.append(word[5])
+			words.append(word[7])
+	elif(len(tag)==10 and tag[0]=='EX' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='RBR' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='NNS' and tag[7]=='IN' and tag[8]=='DT' and tag[9]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==9 and tag[0]=='RB' and tag[1]=='MD' and tag[2]=='RB' and tag[3]=='VB' and tag[4]=='DT' and tag[5]=='NN' and tag[6]=='NN' and tag[7]=='IN' and tag[8]=='NN'):
+			words.append(word[2])
+			words.append(word[6])
+	elif(len(tag)==11 and tag[0]=='RB' and tag[1]=='DT' and tag[2]=='NNS' and tag[3]=='DT' and tag[4]=='NNS' and tag[5]=='VBP' and tag[6]=='VBG' and tag[7]=='IN' and tag[8]=='NNS' and tag[9]=='RB' and tag[10]=='NN'):
+			words.append(word[6])
+			words.append(word[9])
+	elif(len(tag)==16 and tag[0]=='DT' and tag[1]=='CD' and tag[2]=='NNS' and tag[3]=='VBP' and tag[4]=='RB' and tag[5]=='VBN' and tag[6]=='JJ' and tag[7]=='CC' and tag[8]=='PRP' and tag[9]=='VBP' and tag[10]=='RB' and tag[11]=='RB' and tag[12]=='JJ' and tag[13]=='IN' and 
+	tag[14]=='DT' and tag[15]=='JJ'):
+			words.append(word[6])
+			words.append(word[11])
+			words.append(word[12])
+	elif(len(tag)==8 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='VBN' and tag[3]=='IN' and tag[4]=='DT' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==5 and tag[0]=='PRP' and tag[1]=='VBP' and tag[2]=='VBN' and tag[3]=='DT' and tag[4]=='NNS'):
+			words.append(word[2])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='NN'):
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==12 and tag[0]=='DT' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='NN' and tag[4]=='VBZ' and tag[5]=='VBN' and tag[6]=='VBN' and tag[7]=='RP' and tag[8]=='IN' and tag[9]=='RB' and tag[10]=='JJ' and tag[11]=='NNS'):
+			words.append(word[1])
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[9])
+			words.append(word[10])
+	elif(len(tag)==10 and tag[0]=='VBG' and tag[1]=='IN' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='VBZ' and tag[5]=='JJ' and tag[6]=='CC' and tag[7]=='JJ' and tag[8]=='DT' and tag[9]=='NNS'):
+			words.append(word[0])
+			words.append(word[5])
+			words.append(word[7])
+	elif(len(tag)==8 and tag[0]=='EX' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='DT' and tag[7]=='NNS'):
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==7 and tag[0]=='NN' and tag[1]=='VBZ' and tag[2]=='VBG' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==10 and tag[0]=='NN' and tag[1]=='VBP' and tag[2]=='RB' and tag[3]=='RB' and tag[4]=='TO' and tag[5]=='VB' and tag[6]=='JJ' and tag[7]=='DT' and tag[8]=='JJ' and tag[9]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[8])
+	elif(len(tag)==9 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='NN' and tag[3]=='NN' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='DT' and tag[7]=='JJ' and tag[8]=='NN'):
+			words.append(word[3])
+			words.append(word[7])
+			words.append(word[8])
+	elif(len(tag)==10 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='NN' and tag[3]=='VBD' and tag[4]=='RB' and tag[5]=='RB' and tag[6]=='IN' and tag[7]=='JJ' and tag[8]=='NN' and tag[9]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[5])
+			words.append(word[7])
+	elif(len(tag)==11 and tag[0]=='NNS' and tag[1]=='VBD' and tag[2]=='RB' and tag[3]=='VBN' and tag[4]=='WRB' and tag[5]=='DT' and tag[6]=='NN' and tag[7]=='NN' and tag[8]=='VBD' and tag[9]=='TO' and tag[10]=='VB'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[8])
+			words.append(word[10])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='NNS' and tag[3]=='VBP' and tag[4]=='VBN' and tag[5]=='IN' and tag[6]=='JJ' and tag[7]=='NN'):
+			words.append(word[4])
+			words.append(word[6])
+	elif(len(tag)==10 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='JJ' and tag[4]=='VBG' and tag[5]=='NNS' and tag[6]=='VBZ' and tag[7]=='RB' and tag[8]=='VBN' and tag[9]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[7])
+			words.append(word[8])
+	
+	elif(len(tag)==10 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='RB' and tag[3]=='JJ' and tag[4]=='DT' and tag[5]=='VBZ' and tag[6]=='NN' and tag[7]=='IN' and tag[8]=='JJ' and tag[9]=='NN'):
+			words.append(word[3])
+			words.append(word[8])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='NN' and tag[6]=='CC' and tag[7]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='NN' and tag[6]=='CC' and tag[7]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==8 and tag[0]=='RB' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='VBG' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[4])
+	elif(len(tag)==3 and tag[0]=='JJS' and tag[1]=='NN' and tag[2]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==5 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='JJ' and tag[4]=='NN'):
+			words.append(word[0])
+			words.append(word[3])
+	elif(len(tag)==3 and tag[0]=='JJS' and tag[1]=='NN' and tag[2]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==2 and tag[0]=='JJ' and tag[1]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==4 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==3 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='RB' and tag[4]=='JJ' and tag[5]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==3 and tag[0]=='JJ' and tag[1]=='JJ' and tag[2]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='JJS' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='NN'):
+			words.append(word[1])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='JJS' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==6 and tag[0]=='RB' and tag[1]=='DT' and tag[2]=='JJS' and tag[3]=='CC' and tag[4]=='JJS' and tag[5]=='NN'):
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==7 and tag[0]=='EX' and tag[1]=='VBP' and tag[2]=='JJ' and tag[3]=='NNS' and tag[4]=='CC' and tag[5]=='JJ' and tag[6]=='NNS'):
+			words.append(word[2])
+			words.append(word[5])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==10 and tag[0]=='EX' and tag[1]=='VBP' and tag[2]=='JJ' and tag[3]=='NNS' and tag[4]=='CC' and tag[5]=='JJ' and tag[6]=='NNS' and tag[7]=='IN' and tag[8]=='DT' and tag[9]=='NN'):
+			words.append(word[2])
+			words.append(word[5])
+	elif(len(tag)==7 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='RBS' and tag[4]=='CC' and tag[5]=='JJ' and tag[6]=='JJ'):
+			words.append(word[3])
+			words.append(word[5])
+			words.append(word[6])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==7 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='RB' and tag[4]=='IN' and tag[5]=='DT' and tag[6]=='JJ'):
+			words.append(word[3])
+			words.append(word[5])
+			words.append(word[6])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='DT' and tag[4]=='CD' and tag[5]=='NN' and tag[6]=='JJ' and tag[7]=='NN'):
+			words.append(word[2])
+			words.append(word[6])
+	elif(len(tag)==9 and tag[0]=='NN' and tag[1]=='IN' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='VBG' and tag[5]=='JJ' and tag[6]=='NNS' and tag[7]=='DT' and tag[8]=='NN'):
+			words.append(word[0])
+			words.append(word[4])
+			words.append(word[5])
+	elif(len(tag)==10 and tag[0]=='RB' and tag[1]=='DT' and tag[2]=='NN' and tag[3]=='VBZ' and tag[4]=='VBG' and tag[5]=='IN' and tag[6]=='PRP' and tag[7]=='VBZ' and tag[8]=='JJ' and tag[9]=='NNS'):
+			words.append(word[4])
+			words.append(word[8])
+	elif(len(tag)==6 and tag[0]=='NN' and tag[1]=='VBZ' and tag[2]=='RBS' and tag[3]=='JJ' and tag[4]=='JJ' and tag[5]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='DT' and tag[4]=='JJS' and tag[5]=='CC' and tag[6]=='JJS' and tag[7]=='NN'):
+			words.append(word[4])
+			words.append(word[6])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='VBG' and tag[4]=='RB' and tag[5]=='CC' and tag[6]=='JJ' and tag[7]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[6])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='CC' and tag[7]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==3 and tag[0]=='JJ' and tag[1]=='IN' and tag[2]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==5 and tag[0]=='JJS' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='NNS'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==6 and tag[0]=='RB' and tag[1]=='DT' and tag[2]=='CD' and tag[3]=='NN' and tag[4]=='JJ' and tag[5]=='NN'):
+			words.append(word[0])
+			words.append(word[4])
+	elif(len(tag)==8 and tag[0]=='RB' and tag[1]=='PRP$' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='PRP' and tag[5]=='VBZ' and tag[6]=='JJ' and tag[7]=='NNS'):
+			words.append(word[6])
+	elif(len(tag)==6 and tag[0]=='NN' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='NN' and tag[5]=='NNS'):
+			words.append(word[1])
+	elif(len(tag)==3 and tag[0]=='NN' and tag[1]=='IN' and tag[2]=='VBG'):
+			words.append(word[2])
+	elif(len(tag)==5 and tag[0]=='RB' and tag[1]=='NN' and tag[2]=='CC' and tag[3]=='NN' and tag[4]=='VBP'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==6 and tag[0]=='NN' and tag[1]=='VBZ' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='DT' and tag[5]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==4 and tag[0]=='JJ' and tag[1]=='JJ' and tag[2]=='JJ' and tag[3]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==4 and tag[0]=='DT' and tag[1]=='JJS' and tag[2]=='NN' and tag[3]=='NN'):
+			words.append(word[1])
+	elif(len(tag)==6 and tag[0]=='RB' and tag[1]=='JJ' and tag[2]=='CC' and tag[3]=='JJ' and tag[4]=='TO' and tag[5]=='VB'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==8 and tag[0]=='RB' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='NN' and tag[5]=='NN' and tag[6]=='CC' and tag[7]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==1 and tag[0]=='NN'):
+			words.append(0)
+	elif(len(tag)==8 and tag[0]=='VBP' and tag[1]=='RB' and tag[2]=='VB' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='VBG' and tag[6]=='NN' and tag[7]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==13 and tag[0]=='PRP' and tag[1]=='MD' and tag[2]=='RB' and tag[3]=='VB' and tag[4]=='IN' and tag[5]=='DT' and tag[6]=='NN' and tag[7]=='NN' and tag[8]=='IN' and tag[9]=='VBP' and tag[10]=='VBG' and tag[11]=='DT' and tag[12]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[8])
+	elif(len(tag)==7 and tag[0]=='VBG' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='VBG' and tag[4]=='NN' and tag[5]=='VBZ' and tag[6]=='JJ'):
+			words.append(word[0])
+			words.append(word[2])
+			words.append(word[6])
+	elif(len(tag)==5 and tag[0]=='JJ' and tag[1]=='NNS' and tag[2]=='MD' and tag[3]=='VB' and tag[4]=='NNS'):
+			words.append(word[0])
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==9 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='VBG' and tag[4]=='DT' and tag[5]=='JJ' and tag[6]=='NN' and tag[7]=='IN' and tag[8]=='NNS'):
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='POS' and tag[3]=='NNS' and tag[4]=='VBP' and tag[5]=='RB' and tag[6]=='VBG' and tag[7]=='RB'):
+			words.append(word[5])
+			words.append(word[6])
+			words.append(word[7])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='RB' and tag[4]=='JJ'):
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==7 and tag[0]=='NN' and tag[1]=='VBZ' and tag[2]=='VBN' and tag[3]=='RP' and tag[4]=='IN' and tag[5]=='DT' and tag[6]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==4 and tag[0]=='NN' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='VBN'):
+			words.append(word[3])
+	elif(len(tag)==7 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='VBG' and tag[4]=='DT' and tag[5]=='NN' and tag[6]=='NN'):
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==4 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NN'):
+			words.append(word[1])
+	elif(len(tag)==8 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='IN' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='DT' and tag[7]=='NN'):
+			words.append(word[1])
+			words.append(word[7])
+	elif(len(tag)==5 and tag[0]=='PRP' and tag[1]=='VBP' and tag[2]=='IN' and tag[3]=='DT' and tag[4]=='NN'):
+			words.append(word[1])
+	elif(len(tag)==3 and tag[0]=='NN' and tag[1]=='IN' and tag[2]=='RB'):
+			words.append(word[2])
+	elif(len(tag)==6 and tag[0]=='JJ' and tag[1]=='NNS' and tag[2]=='MD' and tag[3]=='RB' and tag[4]=='VB' and tag[5]=='VB'):
+			words.append(word[0])
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==5 and tag[0]=='VBP' and tag[1]=='RB' and tag[2]=='VB' and tag[3]=='IN' and tag[4]=='NNS'):
+			words.append(word[1])
+			words.append(word[3])
+	elif(len(tag)==7 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NNS' and tag[4]=='IN' and tag[5]=='PRP$' and tag[6]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==8 and tag[0]=='NN' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='PRP' and tag[4]=='VBP' and tag[5]=='RB' and tag[6]=='VB' and tag[7]=='NN'):
+			words.append(word[5])
+	elif(len(tag)==7 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='RBR' and tag[4]=='RB' and tag[5]=='IN' and tag[6]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==4 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NN'):
+			words.append(word[1])
+	elif(len(tag)==5 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='RB'):
+			words.append(word[1])
+			words.append(word[4])
+	elif(len(tag)==9 and tag[0]=='NN' and tag[1]=='NNS' and tag[2]=='VBP' and tag[3]=='VBN' and tag[4]=='RB' and tag[5]=='JJ' and tag[6]=='IN' and tag[7]=='DT' and tag[8]=='NN'):
+			words.append(word[4])
+			words.append(word[5])
+	elif(len(tag)==9 and tag[0]=='NN' and tag[1]=='NNS' and tag[2]=='VBP' and tag[3]=='VBN' and tag[4]=='RB' and tag[5]=='JJ' and tag[6]=='IN' and tag[7]=='DT' and tag[8]=='NN'):
+			words.append(word[4])
+			words.append(word[5])
+	elif(len(tag)==5 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='NN'):
+			words.append(word[1])
+			words.append(word[4])
+	elif(len(tag)==8 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='RB' and tag[4]=='IN' and tag[5]=='VBN' and tag[6]=='DT' and tag[7]=='NNS'):
+			words.append(word[5])
+	elif(len(tag)==6 and tag[0]=='VBP' and tag[1]=='RB' and tag[2]=='VB' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='NNS'):
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==7 and tag[0]=='RB' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='NNS' and tag[4]=='IN' and tag[5]=='DT' and tag[6]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==4 and tag[0]=='NN' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='JJ'):
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==5 and tag[0]=='NNS' and tag[1]=='VBP' and tag[2]=='JJ' and tag[3]=='TO' and tag[4]=='VB'):
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==7 and tag[0]=='EX' and tag[1]=='VBZ' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='JJ' and tag[6]=='NNS'):
+			words.append(word[2])
+	elif(len(tag)==5 and tag[0]=='NNS' and tag[1]=='VBD' and tag[2]=='VBN' and tag[3]=='IN' and tag[4]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==6 and tag[0]=='VB' and tag[1]=='JJ' and tag[2]=='IN' and tag[3]=='VBG' and tag[4]=='DT' and tag[5]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==4 and tag[0]=='NN' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='JJ'):
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==3 and tag[0]=='NN' and tag[1]=='VBZ' and tag[2]=='VBN'):
+			words.append(word[2])
+	elif(len(tag)==7 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='CC' and tag[3]=='NN' and tag[4]=='NN' and tag[5]=='VBZ' and tag[6]=='JJ'):
+			words.append(word[6])
+	elif(len(tag)==4 and tag[0]=='VBG' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==7 and tag[0]=='NN' and tag[1]=='IN' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='VBG' and tag[5]=='JJ' and tag[6]=='NNS'):
+			words.append(word[0])
+			words.append(word[4])
+			words.append(word[5])
+	elif(len(tag)==4 and tag[0]=='RB' and tag[1]=='IN' and tag[2]=='DT' and tag[3]=='JJ'):
+			words.append(word[0])
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==6 and tag[0]=='NN' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='CC' and tag[5]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==7 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='TO' and tag[3]=='VB' and tag[4]=='CC' and tag[5]=='VB' and tag[6]=='NN'):
+			words.append(word[0])
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==4 and tag[0]=='RB' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==4 and tag[0]=='JJS' and tag[1]=='CC' and tag[2]=='RB' and tag[3]=='JJ'):
+			words.append(word[0])
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==4 and tag[0]=='RB' and tag[1]=='CC' and tag[2]=='JJ' and tag[3]=='NN'):
+			words.append(word[0])
+			words.append(word[2])
+	elif(len(tag)==3 and tag[0]=='NN' and tag[1]=='PRP$' and tag[2]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==10 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='VBD' and tag[5]=='JJ' and tag[6]=='CC' and tag[7]=='RB' and tag[8]=='VBD' and tag[9]=='NNS'):
+			words.append(word[5])
+	elif(len(tag)==10 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='RB' and tag[5]=='JJ' and tag[6]=='CC' and tag[7]=='RB' and tag[8]=='VBD' and tag[9]=='NNS'):
+			words.append(word[4])
+			words.append(word[5])
+	elif(len(tag)==4 and tag[0]=='JJ' and tag[1]=='NNP' and tag[2]=='NN' and tag[3]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==9 and tag[0]=='SYM' and tag[1]=='NN' and tag[2]=='VBP' and tag[3]=='VBG' and tag[4]=='NN' and tag[5]=='VBP' and tag[6]=='PRP$' and tag[7]=='NN' and tag[8]=='NN'):
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==22 and tag[0]=='DT' and tag[1]=='NNS' and tag[2]=='VBD' and tag[3]=='IN' and tag[4]=='NN' and tag[5]=='CC' and tag[6]=='PRP' and tag[7]=='MD' and tag[8]=='VB' and tag[9]=='PRP' and tag[10]=='VBD' and tag[11]=='VBN' and tag[12]=='VBN' and tag[13]=='RP' and tag[14]=='RB' and tag[15]=='IN' and tag[16]=='NN' and tag[17]=='VBG' and tag[18]=='VBN' and tag[19]=='IN' and tag[20]=='DT' and tag[21]=='NN'):
+			words.append(word[3])
+			words.append(word[8])
+			words.append(word[12])
+			words.append(word[13])
+			words.append(word[14])
+			words.append(word[19])
+	elif(len(tag)==6 and tag[0]=='RB' and tag[1]=='PRP' and tag[2]=='VBZ' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='JJ'):
+			words.append(word[0])
+			words.append(word[2])
+			words.append(word[5])
+	elif(len(tag)==1 and tag[0]=='NNS'):
+			words.append(0)
+	elif(len(tag)==1 and tag[0]=='NNS'):
+			words.append(0)
+
+
+	elif(len(tag)==4 and tag[0]=='MD' and tag[1]=='RB' and tag[2]=='VB' and tag[3]=='RB'):
+			words.append(word[1])
+			words.append(word[3])
+	elif(len(tag)==4 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='RB' and tag[3]=='JJ'):
+			words.append(word[2])
+			words.append(word[3])
+	
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='NNS' and tag[2]=='VBD' and tag[3]=='JJ' and tag[4]=='RB'):
+			words.append(word[3])
+	elif(len(tag)==5 and tag[0]=='VBD' and tag[1]=='RB' and tag[2]=='VB' and tag[3]=='IN' and tag[4]=='DT'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==10 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='RB' and tag[4]=='JJ' and tag[5]=='PRP$' and tag[6]=='NN' and tag[7]=='VB' and tag[8]=='RB' and tag[9]=='VB'):
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[8])
+			words.append(word[9])
+	elif(len(tag)==7 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='JJ' and tag[5]=='IN' and tag[6]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==2 and tag[0]=='RB' and tag[1]=='JJ'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==9 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='VBN' and tag[3]=='IN' and tag[4]=='DT' and tag[5]=='NNS' and tag[6]=='VB' and tag[7]=='NN' and tag[8]=='RB'):
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[6])
+	elif(len(tag)==9 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='VBN' and tag[3]=='IN' and tag[4]=='RB' and tag[5]=='JJ' and tag[6]=='IN' and tag[7]=='JJ' and tag[8]=='NN'):
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[5])
+	elif(len(tag)==10 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='NN' and tag[5]=='NN' and tag[6]=='NN' and tag[7]=='IN' and tag[8]=='NN' and tag[9]=='NN'):
+			words.append(word[1])
+	elif(len(tag)==3 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBG'):
+			words.append(word[2])
+	elif(len(tag)==13 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='JJ' and tag[3]=='DT' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='NN' and tag[7]=='NN' and tag[8]=='DT' and tag[9]=='NN' and tag[10]=='VBZ' and tag[11]=='RB' and tag[12]=='JJ'):
+			words.append(word[12])
+	elif(len(tag)==1 and tag[0]=='IN'):
+			words.append(0)
+	elif(len(tag)==1 and tag[0]=='IN'):
+			words.append(0)
+	elif(len(tag)==3 and tag[0]=='RB' and tag[1]=='PRP' and tag[2]=='VBD'):
+			words.append(word[2])
+	elif(len(tag)==10 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='RBR' and tag[4]=='IN' and tag[5]=='DT' and tag[6]=='NN' and tag[7]=='VBZ' and tag[8]=='RB' and tag[9]=='JJ'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[8])
+			words.append(word[9])
+	elif(len(tag)==3 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==23 and tag[0]=='VBD' and tag[1]=='DT' and tag[2]=='NN' and tag[3]=='TO' and tag[4]=='VB' and tag[5]=='PRP$' and tag[6]=='NN' and tag[7]=='RB' and tag[8]=='CD' and tag[9]=='NNS' and tag[10]=='IN' and tag[11]=='NN' and tag[12]=='PRP$' and tag[13]=='VBD' and tag[14]=='JJ' and tag[15]=='NN' and tag[16]=='NN' and tag[17]=='VBG' and tag[18]=='RB' and tag[19]=='IN' and tag[20]=='PRP' and tag[21]=='RB' and tag[22]=='JJ'):
+			words.append(word[14])
+			words.append(word[17])
+			words.append(word[19])
+			words.append(word[21])
+			words.append(word[22])
+	elif(len(tag)==13 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='VBZ' and tag[6]=='JJ' and tag[7]=='JJ' and tag[8]=='NN' and tag[9]=='NNS' and tag[10]=='CC' and tag[11]=='JJ' and tag[12]=='NN'):
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[11])
+	elif(len(tag)==7 and tag[0]=='PRP' and tag[1]=='RB' and tag[2]=='VBD' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='PRP' and tag[6]=='VBD'):
+			words.append(word[1])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='JJS' and tag[2]=='VBD' and tag[3]=='NN' and tag[4]=='NN'):
+			words.append(word[1])
+	elif(len(tag)==22 and tag[0]=='VBD' and tag[1]=='DT' and tag[2]=='NN' and tag[3]=='TO' and tag[4]=='VB' and tag[5]=='PRP$' and tag[6]=='NN' and tag[7]=='RB' and tag[8]=='CD' and tag[9]=='NNS' and tag[10]=='IN' and tag[11]=='NN' and tag[12]=='PRP$' and tag[13]=='VBD' and tag[14]=='JJ' and tag[15]=='NN' and tag[16]=='NN' and tag[17]=='IN' and tag[18]=='IN' and tag[19]=='PRP' and tag[20]=='RB' and tag[21]=='JJ'):
+			words.append(word[14])
+			words.append(word[18])
+			words.append(word[20])
+			words.append(word[21])
+	elif(len(tag)==16 and tag[0]=='RB' and tag[1]=='EX' and tag[2]=='VBP' and tag[3]=='NNS' and tag[4]=='IN' and tag[5]=='DT' and tag[6]=='NN' and tag[7]=='NNS' and tag[8]=='CC' and tag[9]=='NN' and tag[10]=='IN' and tag[11]=='CD' and tag[12]=='WDT' and tag[13]=='VBZ' and tag[14]=='JJ' and tag[15]=='NN'):
+			words.append(word[4])
+			words.append(word[14])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='VBD' and tag[2]=='IN' and tag[3]=='DT' and tag[4]=='JJ' and tag[5]=='NN'):
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='VBD' and tag[2]=='IN' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='VBD' and tag[2]=='IN' and tag[3]=='DT' and tag[4]=='JJ' and tag[5]=='NN'):
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==11 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='NN' and tag[6]=='CC' and tag[7]=='MD' and tag[8]=='RB' and tag[9]=='VB' and tag[10]=='JJR'):
+			words.append(word[1])
+			words.append(word[5])
+			words.append(word[8])
+			words.append(word[10])
+	elif(len(tag)==11 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='NN' and tag[6]=='CC' and tag[7]=='MD' and tag[8]=='RB' and tag[9]=='VB' and tag[10]=='JJ'):
+			words.append(word[1])
+			words.append(word[5])
+			words.append(word[8])
+			words.append(word[10])
+	elif(len(tag)==20 and tag[0]=='VBZ' and tag[1]=='IN' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='TO' and tag[7]=='VB' and tag[8]=='NN' and tag[9]=='IN' and tag[10]=='DT' and tag[11]=='JJ' and tag[12]=='NN' and tag[13]=='NN' and tag[14]=='VB' and tag[15]=='PRP' and tag[16]=='NN' and tag[17]=='CC' and tag[18]=='NN' and tag[19]=='RB'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[7])
+			words.append(word[11])
+			words.append(word[14])
+			words.append(word[19])
+	elif(len(tag)==10 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='NN' and tag[6]=='CC' and tag[7]=='MD' and tag[8]=='VB' and tag[9]=='JJR'):
+			words.append(word[1])
+			words.append(word[5])
+			words.append(word[9])
+	elif(len(tag)==11 and tag[0]=='DT' and tag[1]=='JJ' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='NN' and tag[6]=='VBD' and tag[7]=='IN' and tag[8]=='PRP' and tag[9]=='RB' and tag[10]=='JJ'):
+			words.append(word[2])
+			words.append(word[9])
+			words.append(word[10])
+	elif(len(tag)==6 and tag[0]=='NN' and tag[1]=='VBP' and tag[2]=='IN' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==17 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='VBD' and tag[5]=='PRP' and tag[6]=='VB' and tag[7]=='IN' and tag[8]=='NN' and tag[9]=='VBD' and tag[10]=='JJ' and tag[11]=='DT' and tag[12]=='NN' and tag[13]=='PRP' and tag[14]=='VBD' and tag[15]=='TO' and tag[16]=='NN'):
+			words.append(word[0])
+			words.append(word[4])
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[10])
+			words.append(word[11])
+			words.append(word[14])
+	elif(len(tag)==5 and tag[0]=='JJ' and tag[1]=='NNS' and tag[2]=='CC' and tag[3]=='JJ' and tag[4]=='NNS'):
+			words.append(word[0])
+			words.append(word[3])
+	elif(len(tag)==2 and tag[0]=='DT' and tag[1]=='NN'):
+			words.append(0)
+	elif(len(tag)==2 and tag[0]=='NN' and tag[1]=='NNS'):
+			words.append(0)
+	elif(len(tag)==8 and tag[0]=='PRP$' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='TO' and tag[4]=='VB' and tag[5]=='VBD' and tag[6]=='DT' and tag[7]=='NN'):
+			words.append(word[1])
+			words.append(word[4])
+	elif(len(tag)==14 and tag[0]=='EX' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='JJ' and tag[6]=='RB' and tag[7]=='WDT' and tag[8]=='MD' and tag[9]=='VB' and tag[10]=='PRP' and tag[11]=='IN' and tag[12]=='NN' and tag[13]=='RB'):
+			words.append(word[2])
+			words.append(word[5])
+			words.append(word[6])
+			words.append(word[9])
+			words.append(word[11])
+			words.append(word[13])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='NN' and tag[3]=='CC' and tag[4]=='NN'):
+			words.append(0)
+	elif(len(tag)==26 and tag[0]=='RB' and tag[1]=='TO' and tag[2]=='VB' and tag[3]=='IN' and tag[4]=='DT' and tag[5]=='NNS' and tag[6]=='VBD' and tag[7]=='JJ' and tag[8]=='IN' and tag[9]=='PRP' and tag[10]=='VBN' and tag[11]=='RP' and tag[12]=='IN' and tag[13]=='DT' and tag[14]=='VBN' and tag[15]=='NN' and tag[16]=='CC' and tag[17]=='NN' and tag[18]=='VBP' and tag[19]=='VB' and tag[20]=='PRP' and tag[21]=='IN' and tag[22]=='NN' and tag[23]=='IN' and tag[24]=='VBG' and tag[25]=='JJ'):
+			words.append(word[0])
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[7])
+			words.append(word[10])
+			words.append(word[14])
+			words.append(word[18])
+			words.append(word[19])
+			words.append(word[24])
+			words.append(word[25])
+	elif(len(tag)==11 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='DT' and tag[6]=='DT' and tag[7]=='JJS' and tag[8]=='NNS' and tag[9]=='IN' and tag[10]=='NN'):
+			words.append(word[0])
+			words.append(word[7])
+			words.append(word[9])
+	elif(len(tag)==13 and tag[0]=='IN' and tag[1]=='DT' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='PRP$' and tag[5]=='NN' and tag[6]=='VBD' and tag[7]=='RB' and tag[8]=='JJ' and tag[9]=='CC' and tag[10]=='VBD' and tag[11]=='JJ' and tag[12]=='NN'):
+			words.append(word[2])
+			words.append(word[7])
+			words.append(word[8])
+			words.append(word[10])
+			words.append(word[11])
+	
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='VBD' and tag[6]=='RB' and tag[7]=='JJ'):
+			words.append(word[3])
+			words.append(word[5])
+			words.append(word[6])
+	elif(len(tag)==9 and tag[0]=='PRP$' and tag[1]=='RB' and tag[2]=='JJ' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='VBZ' and tag[6]=='RB' and tag[7]=='JJ' and tag[8]=='JJ'):
+			words.append(word[2])
+			words.append(word[7])
+			words.append(word[8])
+	elif(len(tag)==10 and tag[0]=='IN' and tag[1]=='PRP' and tag[2]=='VBP' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='RB' and tag[6]=='VB' and tag[7]=='TO' and tag[8]=='DT' and tag[9]=='NN'):
+			words.append(word[2])
+			words.append(word[5])
+	elif(len(tag)==17 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='JJ' and tag[5]=='CC' and tag[6]=='PRP' and tag[7]=='VBD' and tag[8]=='JJ' and tag[9]=='NN' and tag[10]=='IN' and tag[11]=='NN' and tag[12]=='IN' and tag[13]=='DT' and tag[14]=='JJ' and tag[15]=='NN' and tag[16]=='NN'):
+			words.append(word[1])
+			words.append(word[4])
+			words.append(word[8])
+			words.append(word[14])
+	elif(len(tag)==18 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='JJ' and tag[5]=='CC' and tag[6]=='PRP' and tag[7]=='VBD' and tag[8]=='JJ' and tag[9]=='NN' and tag[10]=='IN' and tag[11]=='DT' and tag[12]=='NN' and tag[13]=='IN' and tag[14]=='DT' and tag[15]=='JJ' and tag[16]=='NN' and tag[17]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[8])
+			words.append(word[15])
+	elif(len(tag)==14 and tag[0]=='PRP$' and tag[1]=='NN' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='DT' and tag[6]=='NN' and tag[7]=='VBD' and tag[8]=='RB' and tag[9]=='JJ' and tag[10]=='CC' and tag[11]=='NN' and tag[12]=='NN' and tag[13]=='VBG'):
+			words.append(word[2])
+			words.append(word[9])
+			words.append(word[13])
+	elif(len(tag)==3 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='PRP'):
+			words.append(word[1])
+	elif(len(tag)==16 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='VBG' and tag[3]=='IN' and tag[4]=='PRP' and tag[5]=='WRB' and tag[6]=='VBD' and tag[7]=='PRP$' and tag[8]=='NN' and tag[9]=='VBD' and tag[10]=='VBN' and tag[11]=='PRP$' and tag[12]=='NNS' and tag[13]=='IN' and tag[14]=='DT' and tag[15]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[6])
+			words.append(word[10])
+	elif(len(tag)==16 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='VBG' and tag[3]=='IN' and tag[4]=='PRP' and tag[5]=='WRB' and tag[6]=='VB' and tag[7]=='PRP$' and tag[8]=='NN' and tag[9]=='VBD' and tag[10]=='VBN' and tag[11]=='PRP$' and tag[12]=='NNS' and tag[13]=='IN' and tag[14]=='DT' and tag[15]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[6])
+	elif(len(tag)==16 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='VBG' and tag[3]=='IN' and tag[4]=='PRP' and tag[5]=='WRB' and tag[6]=='VBD' and tag[7]=='PRP$' and tag[8]=='NN' and tag[9]=='VBZ' and tag[10]=='VBN' and tag[11]=='PRP$' and tag[12]=='NNS' and tag[13]=='IN' and tag[14]=='DT' and tag[15]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[6])
+	elif(len(tag)==17 and tag[0]=='PRP' and tag[1]=='VBP' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='NNS' and tag[6]=='CC' and tag[7]=='VB' and tag[8]=='IN' and tag[9]=='TO' and tag[10]=='DT' and tag[11]=='CD' and tag[12]=='WRB' and tag[13]=='VBP' and tag[14]=='VBP' and tag[15]=='PRP$' and tag[16]=='NN'):
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[7])
+			words.append(word[8])
+			words.append(word[13])
+			words.append(word[14])
+	elif(len(tag)==6 and tag[0]=='PRP$' and tag[1]=='NN' and tag[2]=='NN' and tag[3]=='VBZ' and tag[4]=='RB' and tag[5]=='JJ'):
+			words.append(word[5])
+	elif(len(tag)==17 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='VBG' and tag[3]=='IN' and tag[4]=='PRP' and tag[5]=='WRB' and tag[6]=='PRP' and tag[7]=='VBD' and tag[8]=='PRP$' and tag[9]=='NN' and tag[10]=='VBD' and tag[11]=='VBN' and tag[12]=='PRP$' and tag[13]=='NNS' and tag[14]=='IN' and tag[15]=='DT' and tag[16]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[7])
+	elif(len(tag)==10 and tag[0]=='VBD' and tag[1]=='PRP' and tag[2]=='JJ' and tag[3]=='NNS' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='JJ' and tag[7]=='CC' and tag[8]=='JJ' and tag[9]=='NN'):
+			words.append(word[0])
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[6])
+			words.append(word[8])
+	elif(len(tag)==4 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBD' and tag[3]=='JJ'):
+			words.append(word[3])
+	elif(len(tag)==1 and tag[0]=='VBD'):
+			words.append(word[0])
+	elif(len(tag)==2 and tag[0]=='NN' and tag[1]=='NN'):
+			words.append(0)
+	elif(len(tag)==3 and tag[0]=='VB' and tag[1]=='RB' and tag[2]=='VB'):
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==3 and tag[0]=='VB' and tag[1]=='PRP$' and tag[2]=='NN'):
+			words.append(0)
+	elif(len(tag)==3 and tag[0]=='VB' and tag[1]=='TO' and tag[2]=='VB'):
+			words.append(word[2])
+	elif(len(tag)==4 and tag[0]=='NNS' and tag[1]=='VBP' and tag[2]=='VBP' and tag[3]=='PRP'):
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==4 and tag[0]=='NN' and tag[1]=='VBP' and tag[2]=='PRP' and tag[3]=='RB'):
+			words.append(word[1])
+			words.append(word[3])
+	elif(len(tag)==4 and tag[0]=='JJ' and tag[1]=='VBP' and tag[2]=='PRP$' and tag[3]=='RB'):
+			words.append(word[1])
+			words.append(word[3])
+	elif(len(tag)==13 and tag[0]=='DT' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='NN' and tag[4]=='VBZ' and tag[5]=='JJ' and tag[6]=='WDT' and tag[7]=='RB' and tag[8]=='JJ' and tag[9]=='IN' and tag[10]=='DT' and tag[11]=='JJ' and tag[12]=='NN'):
+			words.append(word[1])
+			words.append(word[5])
+			words.append(word[7])
+			words.append(word[8])
+			words.append(word[11])
+	elif(len(tag)==6 and tag[0]=='PRP' and tag[1]=='VBD' and tag[2]=='TO' and tag[3]=='VB' and tag[4]=='CC' and tag[5]=='VB'):
+			words.append(word[1])
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==5 and tag[0]=='VB' and tag[1]=='RP' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='NN'):
+			words.append(word[1])
+	elif(len(tag)==18 and tag[0]=='PRP$' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='VBZ' and tag[4]=='DT' and tag[5]=='JJ' and tag[6]=='NN' and tag[7]=='NN' and tag[8]=='DT' and tag[9]=='JJ' and tag[10]=='JJ' and tag[11]=='RB' and tag[12]=='WRB' and tag[13]=='VBD' and tag[14]=='RB' and tag[15]=='TO' and tag[16]=='CD' and tag[17]=='IN'):
+			words.append(word[5])
+			words.append(word[9])
+			words.append(word[10])
+			words.append(word[11])
+			words.append(word[13])
+			words.append(word[14])
+	elif(len(tag)==18 and tag[0]=='PRP$' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='VBZ' and tag[4]=='DT' and tag[5]=='JJ' and tag[6]=='NN' and tag[7]=='NN' and tag[8]=='DT' and tag[9]=='JJ' and tag[10]=='JJ' and tag[11]=='RB' and tag[12]=='NN' and tag[13]=='VBD' and tag[14]=='RB' and tag[15]=='TO' and tag[16]=='CD' and tag[17]=='IN'):
+			words.append(word[5])
+			words.append(word[9])
+			words.append(word[10])
+			words.append(word[11])
+			words.append(word[13])
+			words.append(word[14])
+	elif(len(tag)==18 and tag[0]=='PRP$' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='VBZ' and tag[4]=='DT' and tag[5]=='JJ' and tag[6]=='NN' and tag[7]=='NN' and tag[8]=='DT' and tag[9]=='JJ' and tag[10]=='JJ' and tag[11]=='RB' and tag[12]=='WRB' and tag[13]=='VBD' and tag[14]=='RB' and tag[15]=='TO' and tag[16]=='CD' and tag[17]=='IN'):
+			words.append(word[5])
+			words.append(word[9])
+			words.append(word[10])
+			words.append(word[11])
+			words.append(word[13])
+			words.append(word[14])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='DT' and tag[4]=='JJ' and tag[5]=='NN'):
+			words.append(word[4])
+	elif(len(tag)==8 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='VBD' and tag[7]=='JJ'):
+			words.append(word[3])
+			words.append(word[7])
+	elif(len(tag)==8 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='VBD' and tag[7]=='JJ'):
+			words.append(word[3])
+			words.append(word[7])
+	elif(len(tag)==9 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='VBN' and tag[4]=='DT' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='VBD' and tag[8]=='JJ'):
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[8])
+
+	elif(len(tag)==10 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='WDT' and tag[3]=='VBD' and tag[4]=='VBD' and tag[5]=='RB' and tag[6]=='VB' and tag[7]=='NN' and tag[8]=='IN' and tag[9]=='NN'):
+			words.append(word[3])
+			words.append(word[5])
+			words.append(word[6])
+	elif(len(tag)==9 and tag[0]=='NN' and tag[1]=='VBP' and tag[2]=='NNS' and tag[3]=='CC' and tag[4]=='PRP' and tag[5]=='VBZ' and tag[6]=='JJ' and tag[7]=='IN' and tag[8]=='PRP'):
+			words.append(word[5])
+			words.append(word[6])
+
+
+	elif(len(tag)==5 and tag[0]=='JJ' and tag[1]=='DT' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='DT'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==18 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='NN' and tag[5]=='VBZ' and tag[6]=='JJ' and tag[7]=='IN' and tag[8]=='PRP' and tag[9]=='VBP' and tag[10]=='IN' and tag[11]=='DT' and tag[12]=='NN' and tag[13]=='JJ' and tag[14]=='NN' and tag[15]=='RB' and tag[16]=='VBP' and tag[17]=='NN'):
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[13])
+			words.append(word[15])
+			words.append(word[16])
+	elif(len(tag)==18 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='NN' and tag[5]=='VBZ' and tag[6]=='JJ' and tag[7]=='NN' and tag[8]=='PRP' and tag[9]=='VBP' and tag[10]=='IN' and tag[11]=='DT' and tag[12]=='RB' and tag[13]=='JJ' and tag[14]=='NN' and tag[15]=='RB' and tag[16]=='VBP' and tag[17]=='NN'):
+			words.append(word[6])
+			words.append(word[12])
+			words.append(word[13])
+			words.append(word[15])
+			words.append(word[16])
+	elif(len(tag)==12 and tag[0]=='IN' and tag[1]=='DT' and tag[2]=='JJR' and tag[3]=='NN' and tag[4]=='VBD' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='DT' and tag[8]=='NN' and tag[9]=='CC' and tag[10]=='NN' and tag[11]=='NN'):
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==12 and tag[0]=='IN' and tag[1]=='DT' and tag[2]=='JJR' and tag[3]=='NN' and tag[4]=='VBD' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='DT' and tag[8]=='NN' and tag[9]=='CC' and tag[10]=='NN' and tag[11]=='NNS'):
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==8 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='RB' and tag[3]=='VB' and tag[4]=='DT' and tag[5]=='NN' and tag[6]=='TO' and tag[7]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+	
+	elif(len(tag)==10 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='NN' and tag[3]=='NN' and tag[4]=='VBZ' and tag[5]=='JJ' and tag[6]=='CC' and tag[7]=='RB' and tag[8]=='NN' and tag[9]=='NN'):
+			words.append(word[5])
+			words.append(word[7])
+	elif(len(tag)==18 and tag[0]=='PRP' and tag[1]=='RB' and tag[2]=='VBP' and tag[3]=='IN' and tag[4]=='VBD' and tag[5]=='PRP' and tag[6]=='JJ' and tag[7]=='RB' and tag[8]=='CC' and tag[9]=='DT' and tag[10]=='JJ' and tag[11]=='NN' and tag[12]=='IN' and tag[13]=='NNS' and tag[14]=='IN' and tag[15]=='NN' and tag[16]=='VBP' and tag[17]=='RB'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[16])
+			words.append(word[17])
+	elif(len(tag)==18 and tag[0]=='PRP' and tag[1]=='RB' and tag[2]=='VBP' and tag[3]=='IN' and tag[4]=='VBD' and tag[5]=='PRP' and tag[6]=='JJ' and tag[7]=='RB' and tag[8]=='CC' and tag[9]=='DT' and tag[10]=='JJ' and tag[11]=='NN' and tag[12]=='IN' and tag[13]=='NNS' and tag[14]=='IN' and tag[15]=='NN' and tag[16]=='VBP' and tag[17]=='RB'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[16])
+			words.append(word[17])
+	elif(len(tag)==21 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='PRP$' and tag[7]=='JJ' and tag[8]=='NN' and tag[9]=='NN' and tag[10]=='CC' and tag[11]=='PRP' and tag[12]=='VBD' and tag[13]=='RB' and tag[14]=='RB' and tag[15]=='VBZ' and tag[16]=='VBN' and tag[17]=='NN' and tag[18]=='RB' and tag[19]=='RB' and tag[20]=='RB'):
+			words.append(word[1])
+			words.append(word[7])
+			words.append(word[12])
+			words.append(word[13])
+			words.append(word[14])
+			words.append(word[16])
+			words.append(word[18])
+			words.append(word[20])
+	elif(len(tag)==16 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='JJ' and tag[4]=='CC' and tag[5]=='NNS' and tag[6]=='VBP' and tag[7]=='VBP' and tag[8]=='TO' and tag[9]=='IN' and tag[10]=='PRP' and tag[11]=='VBP' and tag[12]=='VBN' and tag[13]=='IN' and tag[14]=='NN' and tag[15]=='RB'):
+			words.append(word[3])
+			words.append(word[7])
+			words.append(word[12])
+	elif(len(tag)==24 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='PRP$' and tag[3]=='NNS' and tag[4]=='RB' and tag[5]=='IN' and tag[6]=='DT' and tag[7]=='NN' and tag[8]=='NN' and tag[9]=='NN' and tag[10]=='VBD' and tag[11]=='IN' and tag[12]=='JJ' and tag[13]=='NN' and tag[14]=='NN' and tag[15]=='CC' and tag[16]=='JJ' and tag[17]=='JJ' and tag[18]=='RB' and tag[19]=='JJ' and tag[20]=='TO' and tag[21]=='VB' and tag[22]=='DT' and tag[23]=='NN'):
+			words.append(word[1])
+			words.append(word[4])
+			words.append(word[5])
+			words.append(word[12])
+			words.append(word[16])
+			words.append(word[17])
+			words.append(word[18])
+			words.append(word[19])
+	elif(len(tag)==14 and tag[0]=='NN' and tag[1]=='VBP' and tag[2]=='RB' and tag[3]=='JJ' and tag[4]=='IN' and tag[5]=='DT' and tag[6]=='NN' and tag[7]=='NN' and tag[8]=='VBD' and tag[9]=='IN' and tag[10]=='NN' and tag[11]=='IN' and tag[12]=='DT' and tag[13]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==7 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='NNS' and tag[3]=='VBP' and tag[4]=='DT' and tag[5]=='MD' and tag[6]=='VB'):
+			words.append(0)
+
+	elif(len(tag)==13 and tag[0]=='NNS' and tag[1]=='RB' and tag[2]=='TO' and tag[3]=='VB' and tag[4]=='IN' and tag[5]=='VBG' and tag[6]=='DT' and tag[7]=='NNS' and tag[8]=='VBP' and tag[9]=='VBP' and tag[10]=='DT' and tag[11]=='JJ' and tag[12]=='NN'):
+			words.append(word[1])
+			words.append(word[3])
+			words.append(word[5])
+			words.append(word[9])
+			words.append(word[11])
+	elif(len(tag)==12 and tag[0]=='NN' and tag[1]=='RB' and tag[2]=='VBN' and tag[3]=='IN' and tag[4]=='DT' and tag[5]=='CC' and tag[6]=='VB' and tag[7]=='MD' and tag[8]=='VB' and tag[9]=='NN' and tag[10]=='TO' and tag[11]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[8])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='JJ' and tag[4]=='CC' and tag[5]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==1 and tag[0]=='JJ'):
+			words.append(word[0])
+	elif(len(tag)==2 and tag[0]=='RB' and tag[1]=='RB'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==2 and tag[0]=='NNS' and tag[1]=='JJ'):
+			words.append(word[1])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='NN' and tag[3]=='VBZ' and tag[4]=='JJ'):
+			words.append(word[4])
+	elif(len(tag)==6 and tag[0]=='JJ' and tag[1]=='VBD' and tag[2]=='TO' and tag[3]=='VB' and tag[4]=='CD' and tag[5]=='NNS'):
+			words.append(word[0])
+			words.append(word[3])
+	elif(len(tag)==4 and tag[0]=='DT' and tag[1]=='JJ' and tag[2]=='JJ' and tag[3]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==3 and tag[0]=='DT' and tag[1]=='JJ' and tag[2]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+
+
+	elif(len(tag)==4 and tag[0]=='NN' and tag[1]=='NN' and tag[2]=='JJ' and tag[3]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==7 and tag[0]=='PRP' and tag[1]=='VBP' and tag[2]=='VBP' and tag[3]=='TO' and tag[4]=='VB' and tag[5]=='CC' and tag[6]=='VB'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[6])
+	elif(len(tag)==2 and tag[0]=='PRP' and tag[1]=='VBP'):
+			words.append(word[1])
+	elif(len(tag)==6 and tag[0]=='PRP' and tag[1]=='VBP' and tag[2]=='TO' and tag[3]=='VB' and tag[4]=='CC' and tag[5]=='VB'):
+			words.append(word[1])
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==20 and tag[0]=='RB' and tag[1]=='PRP' and tag[2]=='VBZ' and tag[3]=='JJ' and tag[4]=='TO' and tag[5]=='RB' and tag[6]=='VB' and tag[7]=='PRP' and tag[8]=='IN' and tag[9]=='DT' and tag[10]=='JJ' and tag[11]=='NNS' and tag[12]=='IN' and tag[13]=='PRP' and tag[14]=='VB' and tag[15]=='NN' and tag[16]=='PRP$' and tag[17]=='NN' and tag[18]=='IN' and tag[19]=='VBG'):
+			words.append(word[0])
+			words.append(word[3])
+			words.append(word[5])
+			words.append(word[6])
+			words.append(word[10])
+			words.append(word[14])
+			words.append(word[18])
+			words.append(word[19])
+
+	elif(len(tag)==18 and tag[0]=='RB' and tag[1]=='PRP$' and tag[2]=='JJ' and tag[3]=='TO' and tag[4]=='RB' and tag[5]=='VB' and tag[6]=='PRP' and tag[7]=='IN' and tag[8]=='DT' and tag[9]=='NNS' and tag[10]=='IN' and tag[11]=='PRP' and tag[12]=='VB' and tag[13]=='NN' and tag[14]=='PRP$' and tag[15]=='NN' and tag[16]=='IN' and tag[17]=='VBG'):
+			words.append(word[0])
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[5])
+			words.append(word[12])
+			words.append(word[16])
+			words.append(word[17])
+	elif(len(tag)==11 and tag[0]=='RB' and tag[1]=='JJ' and tag[2]=='RB' and tag[3]=='VBD' and tag[4]=='PRP$' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='DT' and tag[8]=='NN' and tag[9]=='IN' and tag[10]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==20 and tag[0]=='NN' and tag[1]=='PRP' and tag[2]=='VBD' and tag[3]=='VBD' and tag[4]=='CD' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='IN' and tag[8]=='CD' and tag[9]=='NNS' and tag[10]=='IN' and tag[11]=='NN' and tag[12]=='NN' and tag[13]=='NN' and tag[14]=='CC' and tag[15]=='VBN' and tag[16]=='NN' and tag[17]=='RB' and tag[18]=='JJ' and tag[19]=='VBG'):
+			words.append(word[7])
+			words.append(word[10])
+			words.append(word[15])
+			words.append(word[17])
+			words.append(word[18])
+			words.append(word[19])
+	elif(len(tag)==20 and tag[0]=='DT' and tag[1]=='PRP' and tag[2]=='VBD' and tag[3]=='VBD' and tag[4]=='CD' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='IN' and tag[8]=='CD' and tag[9]=='NNS' and tag[10]=='IN' and tag[11]=='NN' and tag[12]=='NN' and tag[13]=='NN' and tag[14]=='CC' and tag[15]=='VBN' and tag[16]=='NN' and tag[17]=='RB' and tag[18]=='JJ' and tag[19]=='VBG'):
+			words.append(word[7])
+			words.append(word[10])
+			words.append(word[15])
+			words.append(word[17])
+			words.append(word[18])
+			words.append(word[19])
+	elif(len(tag)==4 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='CC' and tag[3]=='VB'):
+			words.append(word[0])
+			words.append(word[3])
+	elif(len(tag)==22 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='JJ' and tag[4]=='DT' and tag[5]=='JJ' and tag[6]=='NNS' and tag[7]=='RB' and tag[8]=='VBP' and tag[9]=='VBD' and tag[10]=='PRP$' and tag[11]=='NN' and tag[12]=='IN' and tag[13]=='DT' and tag[14]=='NN' and tag[15]=='VBD' and tag[16]=='NN' and tag[17]=='CC' and tag[18]=='VBD' and tag[19]=='NN' and tag[20]=='IN' and tag[21]=='NN'):
+			words.append(word[0])
+			words.append(word[3])
+			words.append(word[5])
+			words.append(word[7])
+			words.append(word[15])
+			words.append(word[18])
+			words.append(word[20])
+	elif(len(tag)==11 and tag[0]=='JJ' and tag[1]=='JJ' and tag[2]=='JJ' and tag[3]=='VBG' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='JJ' and tag[8]=='NN' and tag[9]=='IN' and tag[10]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[7])
+	
+	
+
+	elif(len(tag)==10 and tag[0]=='NN' and tag[1]=='IN' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='NNS' and tag[5]=='VBP' and tag[6]=='RB' and tag[7]=='RB' and tag[8]=='VBD' and tag[9]=='RB'):
+			words.append(word[0])
+			words.append(word[3])
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[8])
+			words.append(word[9])
+	elif(len(tag)==10 and tag[0]=='NN' and tag[1]=='IN' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='NNS' and tag[5]=='VBP' and tag[6]=='RB' and tag[7]=='RB' and tag[8]=='VBD' and tag[9]=='RB'):
+			words.append(word[0])
+			words.append(word[3])
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[8])
+			words.append(word[9])
+
+	elif(len(tag)==16 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='DT' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='NN' and tag[8]=='CC' and tag[9]=='VBZ' and tag[10]=='DT' and tag[11]=='NN' and tag[12]=='CC' and tag[13]=='NN' and tag[14]=='NN' and tag[15]=='NN'):
+			words.append(word[4])
+			words.append(word[10])
+	elif(len(tag)==10 and tag[0]=='NN' and tag[1]=='VBP' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='PRP' and tag[5]=='VBZ' and tag[6]=='RB' and tag[7]=='RB' and tag[8]=='JJ' and tag[9]=='NN'):
+			words.append(word[1])
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[8])
+	elif(len(tag)==21 and tag[0]=='RB' and tag[1]=='VBP' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='NN' and tag[5]=='CC' and tag[6]=='VBD' and tag[7]=='RB' and tag[8]=='JJ' and tag[9]=='IN' and tag[10]=='PRP' and tag[11]=='CC' and tag[12]=='DT' and tag[13]=='NN' and tag[14]=='NN' and tag[15]=='RB' and tag[16]=='VBG' and tag[17]=='IN' and tag[18]=='DT' and tag[19]=='VBZ' and tag[20]=='RBR'):
+			words.append(word[1])
+			words.append(word[7])
+			words.append(word[8])
+			words.append(word[15])
+			words.append(word[16])
+			words.append(word[20])
+	elif(len(tag)==10 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='NN' and tag[3]=='NN' and tag[4]=='VBD' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='DT' and tag[8]=='JJ' and tag[9]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[8])
+			words.append(word[9])
+	elif(len(tag)==7 and tag[0]=='EX' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='NNS'):
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==11 and tag[0]=='RB' and tag[1]=='DT' and tag[2]=='NN' and tag[3]=='NNS' and tag[4]=='VBP' and tag[5]=='VBG' and tag[6]=='IN' and tag[7]=='NNS' and tag[8]=='RB' and tag[9]=='DT' and tag[10]=='NN'):
+			words.append(word[5])
+			words.append(word[8])
+	elif(len(tag)==5 and tag[0]=='PRP' and tag[1]=='VBP' and tag[2]=='VBN' and tag[3]=='DT' and tag[4]=='NN'):
+			words.append(word[2])
+	elif(len(tag)==12 and tag[0]=='DT' and tag[1]=='JJ' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='VBZ' and tag[5]=='VBN' and tag[6]=='VBN' and tag[7]=='RP' and tag[8]=='IN' and tag[9]=='RB' and tag[10]=='JJ' and tag[11]=='NNS'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[9])
+			words.append(word[10])
+	elif(len(tag)==7 and tag[0]=='EX' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==4 and tag[0]=='RBS' and tag[1]=='JJ' and tag[2]=='JJ' and tag[3]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==7 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='CC' and tag[5]=='VB' and tag[6]=='NN'):
+			words.append(word[0])
+			words.append(word[5])
+	elif(len(tag)==4 and tag[0]=='RB' and tag[1]=='JJ' and tag[2]=='JJ' and tag[3]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==3 and tag[0]=='NN' and tag[1]=='PRP$' and tag[2]=='NNS'):
+			words.append(word[0])
+	elif(len(tag)==5 and tag[0]=='RB' and tag[1]=='NN' and tag[2]=='CC' and tag[3]=='MD' and tag[4]=='VB'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==3 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='NNS'):
+			words.append(word[0])
+	elif(len(tag)==6 and tag[0]=='RBS' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='NN' and tag[5]=='NNS'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==4 and tag[0]=='DT' and tag[1]=='JJS' and tag[2]=='RB' and tag[3]=='NN'):
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==3 and tag[0]=='JJ' and tag[1]=='IN' and tag[2]=='VBG'):
+			words.append(word[0])
+			words.append(word[2])
+	elif(len(tag)==7 and tag[0]=='NN' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJS' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==2 and tag[0]=='JJS' and tag[1]=='NN'):
+			words.append(word[0])
+	elif(len(tag)==2 and tag[0]=='JJ' and tag[1]=='VBG'):
+			words.append(word[0])
+			words.append(word[1])
+	elif(len(tag)==7 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='VBG' and tag[4]=='DT' and tag[5]=='JJ' and tag[6]=='NN'):
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==9 and tag[0]=='NN' and tag[1]=='IN' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='VBG' and tag[5]=='JJ' and tag[6]=='NN' and tag[7]=='DT' and tag[8]=='NN'):
+			words.append(word[0])
+			words.append(word[4])
+			words.append(word[5])
+	elif(len(tag)==9 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='NN' and tag[7]=='CC' and tag[8]=='NN'):
+			words.append(word[3])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='RBS' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='JJ' and tag[7]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[6])
+	elif(len(tag)==7 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='RBR' and tag[4]=='RB' and tag[5]=='IN' and tag[6]=='NNS'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='RBR' and tag[4]=='RB'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==11 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='NN' and tag[4]=='JJ' and tag[5]=='CC' and tag[6]=='PRP' and tag[7]=='VBZ' and tag[8]=='RB' and tag[9]=='JJ' and tag[10]=='RB'):
+			words.append(word[4])
+			words.append(word[8])
+			words.append(word[9])
+			words.append(word[10])
+	elif(len(tag)==11 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='NN' and tag[4]=='JJ' and tag[5]=='CC' and tag[6]=='PRP' and tag[7]=='VBZ' and tag[8]=='RB' and tag[9]=='JJ' and tag[10]=='RB'):
+			words.append(word[4])
+			words.append(word[8])
+			words.append(word[9])
+			words.append(word[10])
+	elif(len(tag)==11 and tag[0]=='IN' and tag[1]=='PRP' and tag[2]=='VBP' and tag[3]=='IN' and tag[4]=='DT' and tag[5]=='NNS' and tag[6]=='MD' and tag[7]=='VB' and tag[8]=='PRP' and tag[9]=='JJ' and tag[10]=='NN'):
+			words.append(word[2])
+			words.append(word[7])
+	elif(len(tag)==10 and tag[0]=='RB' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='VB' and tag[4]=='DT' and tag[5]=='NN' and tag[6]=='NN' and tag[7]=='IN' and tag[8]=='DT' and tag[9]=='NNS'):
+			words.append(word[1])
+			words.append(word[2])
+			words.append(word[6])
+	elif(len(tag)==8 and tag[0]=='VBG' and tag[1]=='IN' and tag[2]=='DT' and tag[3]=='NN' and tag[4]=='VBZ' and tag[5]=='JJ' and tag[6]=='CC' and tag[7]=='JJ'):
+			words.append(word[0])
+			words.append(word[5])
+			words.append(word[7])
+	elif(len(tag)==5 and tag[0]=='NNS' and tag[1]=='VBD' and tag[2]=='VBN' and tag[3]=='IN' and tag[4]=='JJ'):
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==7 and tag[0]=='RB' and tag[1]=='PRP' and tag[2]=='VBZ' and tag[3]=='VBG' and tag[4]=='IN' and tag[5]=='JJ' and tag[6]=='NNS'):
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==4 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='DT' and tag[3]=='NN'):
+			words.append(word[0])
+			words.append(word[2])
+	elif(len(tag)==7 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='VBG' and tag[4]=='DT' and tag[5]=='JJ' and tag[6]=='NNS'):
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==6 and tag[0]=='JJ' and tag[1]=='NNS' and tag[2]=='MD' and tag[3]=='RB' and tag[4]=='VB' and tag[5]=='NN'):
+			words.append(word[0])
+			words.append(word[3])
+	elif(len(tag)==10 and tag[0]=='RB' and tag[1]=='MD' and tag[2]=='RB' and tag[3]=='VB' and tag[4]=='DT' and tag[5]=='NN' and tag[6]=='NN' and tag[7]=='IN' and tag[8]=='DT' and tag[9]=='NN'):
+			words.append(word[2])
+			words.append(word[6])
+	elif(len(tag)==18 and tag[0]=='JJ' and tag[1]=='VBD' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='POS' and tag[5]=='NN' and tag[6]=='CC' and tag[7]=='VBD' and tag[8]=='DT' and tag[9]=='NNS' and tag[10]=='CC' and tag[11]=='MD' and tag[12]=='RB' and tag[13]=='VB' and tag[14]=='PRP' and tag[15]=='TO' and tag[16]=='VB' and tag[17]=='RB'):
+			words.append(word[1])
+			words.append(word[7])
+			words.append(word[12])
+			words.append(word[16])
+			words.append(word[17])
+	elif(len(tag)==12 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='RB' and tag[4]=='JJ' and tag[5]=='IN' and tag[6]=='NN' and tag[7]=='NN' and tag[8]=='RB' and tag[9]=='JJ' and tag[10]=='IN' and tag[11]=='DT'):
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[8])
+			words.append(word[9])
+	elif(len(tag)==12 and tag[0]=='IN' and tag[1]=='PRP$' and tag[2]=='NN' and tag[3]=='NN' and tag[4]=='VBD' and tag[5]=='VBG' and tag[6]=='JJ' and tag[7]=='NN' and tag[8]=='JJ' and tag[9]=='CC' and tag[10]=='DT' and tag[11]=='NN'):
+			words.append(word[5])
+			words.append(word[6])
+			words.append(word[8])
+			words.append(word[10])
+	elif(len(tag)==6 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='RB' and tag[3]=='VB' and tag[4]=='VBN' and tag[5]=='JJR'):
+			words.append(word[2])
+			words.append(word[5])
+	elif(len(tag)==4 and tag[0]=='NN' and tag[1]=='VB' and tag[2]=='RB' and tag[3]=='JJ'):
+			words.append(word[2])
+			words.append(word[3])
+	elif(len(tag)==12 and tag[0]=='IN' and tag[1]=='PRP$' and tag[2]=='NN' and tag[3]=='NN' and tag[4]=='VBD' and tag[5]=='VBG' and tag[6]=='JJ' and tag[7]=='NN' and tag[8]=='NNS' and tag[9]=='CC' and tag[10]=='DT' and tag[11]=='NN'):
+			words.append(word[5])
+			words.append(word[6])
+			words.append(word[10])
+	elif(len(tag)==4 and tag[0]=='JJ' and tag[1]=='RB' and tag[2]=='JJ' and tag[3]=='NN'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[2])
+	elif(len(tag)==6 and tag[0]=='NN' and tag[1]=='VBP' and tag[2]=='VBG' and tag[3]=='TO' and tag[4]=='VB' and tag[5]=='RB'):
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==5 and tag[0]=='NN' and tag[1]=='VBP' and tag[2]=='VBG' and tag[3]=='TO' and tag[4]=='NN'):
+			words.append(word[2])
+
+	elif(len(tag)==19 and tag[0]=='RB' and tag[1]=='IN' and tag[2]=='PRP$' and tag[3]=='NN' and tag[4]=='CD' and tag[5]=='NN' and tag[6]=='WDT' and tag[7]=='VBZ' and tag[8]=='RB' and tag[9]=='JJ' and tag[10]=='NNS' and tag[11]=='VBP' and tag[12]=='NN' and tag[13]=='VBG' and tag[14]=='WP' and tag[15]=='DT' and tag[16]=='JJ' and tag[17]=='NN' and tag[18]=='VBG'):
+			words.append(word[0])
+			words.append(word[8])
+			words.append(word[9])
+			words.append(word[12])
+			words.append(word[13])
+			words.append(word[18])
+	elif(len(tag)==27 and tag[0]=='DT' and tag[1]=='CD' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='NN' and tag[6]=='NN' and tag[7]=='VBZ' and tag[8]=='IN' and tag[9]=='NNS' and tag[10]=='IN' and tag[11]=='NN' and tag[12]=='POS' and tag[13]=='JJ' and tag[14]=='NN' and tag[15]=='VBD' and tag[16]=='PRP' and tag[17]=='VB' and tag[18]=='CC' and tag[19]=='VB' and tag[20]=='NNS' and tag[21]=='VB' and tag[22]=='RP' and tag[23]=='IN' and tag[24]=='DT' and tag[25]=='JJ' and tag[26]=='NNS'):
+			words.append(word[2])
+			words.append(word[13])
+			words.append(word[17])
+			words.append(word[19])
+			words.append(word[21])
+			words.append(word[23])
+			words.append(word[25])
+	elif(len(tag)==24 and tag[0]=='DT' and tag[1]=='JJ' and tag[2]=='NN' and tag[3]=='IN' and tag[4]=='NN' and tag[5]=='NN' and tag[6]=='VBZ' and tag[7]=='IN' and tag[8]=='NNS' and tag[9]=='IN' and tag[10]=='NNS' and tag[11]=='VBP' and tag[12]=='JJ' and tag[13]=='NN' and tag[14]=='PRP' and tag[15]=='VBP' and tag[16]=='CC' and tag[17]=='VBP' and tag[18]=='NNS' and tag[19]=='VBP' and tag[20]=='RP' and tag[21]=='IN' and tag[22]=='DT' and tag[23]=='JJ'):
+			words.append(word[1])
+			words.append(word[11])
+			words.append(word[12])
+			words.append(word[15])
+			words.append(word[17])
+			words.append(word[19])
+			words.append(word[21])
+			words.append(word[23])
+	elif(len(tag)==4 and tag[0]=='NN' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN'):
+			words.append(0)
+	elif(len(tag)==28 and tag[0]=='NN' and tag[1]=='NN' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='DT' and tag[8]=='NN' and tag[9]=='NN' and tag[10]=='VBZ' and tag[11]=='IN' and tag[12]=='NNS' and tag[13]=='IN' and tag[14]=='NNS' and tag[15]=='VBP' and tag[16]=='JJ' and tag[17]=='NN' and tag[18]=='PRP' and tag[19]=='VBP' and tag[20]=='CC' and tag[21]=='VBP' and tag[22]=='NNS' and tag[23]=='VBP' and tag[24]=='RP' and tag[25]=='IN' and tag[26]=='DT' and tag[27]=='JJ'):
+			words.append(word[4])
+			words.append(word[5])
+			words.append(word[15])
+			words.append(word[16])
+			words.append(word[19])
+			words.append(word[21])
+			words.append(word[23])
+			words.append(word[25])
+			words.append(word[27])
+	elif(len(tag)==16 and tag[0]=='PRP' and tag[1]=='VBZ' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='IN' and tag[5]=='DT' and tag[6]=='NN' and tag[7]=='WDT' and tag[8]=='VBZ' and tag[9]=='PRP' and tag[10]=='VB' and tag[11]=='WRB' and tag[12]=='JJ' and tag[13]=='NN' and tag[14]=='MD' and tag[15]=='JJ'):
+			words.append(word[1])
+			words.append(word[8])
+			words.append(word[10])
+			words.append(word[12])
+			words.append(word[15])
+	elif(len(tag)==9 and tag[0]=='IN' and tag[1]=='PRP' and tag[2]=='VBP' and tag[3]=='RB' and tag[4]=='RB' and tag[5]=='MD' and tag[6]=='VB' and tag[7]=='JJ' and tag[8]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[7])
+	elif(len(tag)==7 and tag[0]=='PRP' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='JJ' and tag[4]=='CC' and tag[5]=='JJ' and tag[6]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==19 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='NN' and tag[8]=='VBP' and tag[9]=='RB' and tag[10]=='VBG' and tag[11]=='PRP' and tag[12]=='RB' and tag[13]=='WDT' and tag[14]=='VBP' and tag[15]=='VB' and tag[16]=='VBZ' and tag[17]=='DT' and tag[18]=='NN'):
+			words.append(word[3])
+			words.append(word[5])
+			words.append(word[6])
+			words.append(word[9])
+			words.append(word[10])
+			words.append(word[12])
+			words.append(word[15])
+	elif(len(tag)==12 and tag[0]=='IN' and tag[1]=='PRP' and tag[2]=='VBP' and tag[3]=='TO' and tag[4]=='VB' and tag[5]=='DT' and tag[6]=='IN' and tag[7]=='DT' and tag[8]=='NN' and tag[9]=='NN' and tag[10]=='IN' and tag[11]=='PRP'):
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[10])
+	elif(len(tag)==8 and tag[0]=='DT' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='RB' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='CD'):
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==23 and tag[0]=='IN' and tag[1]=='DT' and tag[2]=='NN' and tag[3]=='WDT' and tag[4]=='VBZ' and tag[5]=='RB' and tag[6]=='JJ' and tag[7]=='DT' and tag[8]=='NN' and tag[9]=='VBZ' and tag[10]=='VB' and tag[11]=='VBP' and tag[12]=='PRP' and tag[13]=='TO' and tag[14]=='VB' and tag[15]=='RB' and tag[16]=='RBR' and tag[17]=='CC' and tag[18]=='IN' and tag[19]=='JJR' and tag[20]=='NN' and tag[21]=='IN' and tag[22]=='NN'):
+			words.append(word[4])
+			words.append(word[6])
+			words.append(word[11])
+			words.append(word[14])
+			words.append(word[15])
+			words.append(word[16])
+			words.append(word[19])
+	elif(len(tag)==6 and tag[0]=='PRP' and tag[1]=='VBZ' and tag[2]=='RB' and tag[3]=='JJ' and tag[4]=='CC' and tag[5]=='JJ'):
+			words.append(word[2])
+			words.append(word[3])
+			words.append(word[5])
+	elif(len(tag)==6 and tag[0]=='PRP' and tag[1]=='VBZ' and tag[2]=='JJ' and tag[3]=='CC' and tag[4]=='JJ' and tag[5]=='NN'):
+			words.append(word[2])
+			words.append(word[4])
+	elif(len(tag)==5 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==9 and tag[0]=='NN' and tag[1]=='MD' and tag[2]=='VB' and tag[3]=='RB' and tag[4]=='IN' and tag[5]=='PRP' and tag[6]=='VBD' and tag[7]=='DT' and tag[8]=='NNS'):
+			words.append(word[6])
+	elif(len(tag)==7 and tag[0]=='RB' and tag[1]=='PRP$' and tag[2]=='VBG' and tag[3]=='NN' and tag[4]=='NN' and tag[5]=='JJ' and tag[6]=='NNS'):
+			words.append(word[2])
+			words.append(word[5])
+	elif(len(tag)==11 and tag[0]=='WP' and tag[1]=='IN' and tag[2]=='PRP$' and tag[3]=='JJ' and tag[4]=='NN' and tag[5]=='VBZ' and tag[6]=='VBG' and tag[7]=='TO' and tag[8]=='VB' and tag[9]=='DT' and tag[10]=='NN'):
+			words.append(word[6])
+			words.append(word[8])
+	elif(len(tag)==17 and tag[0]=='NN' and tag[1]=='NN' and tag[2]=='RB' and tag[3]=='RB' and tag[4]=='NN' and tag[5]=='VBP' and tag[6]=='VBN' and tag[7]=='TO' and tag[8]=='VB' and tag[9]=='JJ' and tag[10]=='PRP' and tag[11]=='RB' and tag[12]=='VBP' and tag[13]=='RB' and tag[14]=='IN' and tag[15]=='NN' and tag[16]=='VBD'):
+			words.append(word[3])
+			words.append(word[6])
+			words.append(word[8])
+			words.append(word[9])
+			words.append(word[11])
+			words.append(word[12])
+			words.append(word[16])
+	elif(len(tag)==12 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='TO' and tag[7]=='VB' and tag[8]=='CC' and tag[9]=='DT' and tag[10]=='NN' and tag[11]=='JJ'):
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[7])
+			words.append(word[11])
+	elif(len(tag)==14 and tag[0]=='NN' and tag[1]=='VBD' and tag[2]=='PRP' and tag[3]=='IN' and tag[4]=='PRP$' and tag[5]=='NN' and tag[6]=='CC' and tag[7]=='PRP' and tag[8]=='VBD' and tag[9]=='DT' and tag[10]=='NN' and tag[11]=='IN' and tag[12]=='DT' and tag[13]=='NN'):
+			words.append(word[1])
+			words.append(word[10])
+	elif(len(tag)==18 and tag[0]=='NNS' and tag[1]=='VBP' and tag[2]=='RB' and tag[3]=='TO' and tag[4]=='VB' and tag[5]=='DT' and tag[6]=='JJ' and tag[7]=='NN' and tag[8]=='IN' and tag[9]=='CD' and tag[10]=='NNS' and tag[11]=='CC' and tag[12]=='DT' and tag[13]=='VBZ' and tag[14]=='CD' and tag[15]=='NNS' and tag[16]=='IN' and tag[17]=='VBG'):
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[6])
+			words.append(word[8])
+			words.append(word[16])
+			words.append(word[17])
+	elif(len(tag)==18 and tag[0]=='NNS' and tag[1]=='VBP' and tag[2]=='RB' and tag[3]=='TO' and tag[4]=='VB' and tag[5]=='DT' and tag[6]=='JJ' and tag[7]=='NN' and tag[8]=='IN' and tag[9]=='CD' and tag[10]=='NNS' and tag[11]=='CC' and tag[12]=='DT' and tag[13]=='VBZ' and tag[14]=='CD' and tag[15]=='NNS' and tag[16]=='IN' and tag[17]=='VBG'):
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[6])
+			words.append(word[8])
+			words.append(word[16])
+			words.append(word[17])
+	elif(len(tag)==18 and tag[0]=='NNS' and tag[1]=='VBP' and tag[2]=='RB' and tag[3]=='TO' and tag[4]=='VB' and tag[5]=='DT' and tag[6]=='JJ' and tag[7]=='NN' and tag[8]=='IN' and tag[9]=='CD' and tag[10]=='NNS' and tag[11]=='CC' and tag[12]=='DT' and tag[13]=='VBZ' and tag[14]=='CD' and tag[15]=='NNS' and tag[16]=='IN' and tag[17]=='VBG'):
+			words.append(word[2])
+			words.append(word[4])
+			words.append(word[6])
+			words.append(word[8])
+			words.append(word[16])
+			words.append(word[17])
+	elif(len(tag)==18 and tag[0]=='RB' and tag[1]=='RB' and tag[2]=='VBD' and tag[3]=='DT' and tag[4]=='NN' and tag[5]=='IN' and tag[6]=='DT' and tag[7]=='NN' and tag[8]=='CC' and tag[9]=='PRP' and tag[10]=='VBD' and tag[11]=='VBN' and tag[12]=='IN' and tag[13]=='CD' and tag[14]=='NNS' and tag[15]=='RB' and tag[16]=='VBZ' and tag[17]=='JJ'):
+			words.append(word[2])
+			words.append(word[11])
+			words.append(word[15])
+			words.append(word[16])
+			words.append(word[17])
+	elif(len(tag)==15 and tag[0]=='PRP$' and tag[1]=='NN' and tag[2]=='VBZ' and tag[3]=='JJ' and tag[4]=='JJ' and tag[5]=='CC' and tag[6]=='JJ' and tag[7]=='VBP' and tag[8]=='RB' and tag[9]=='VBD' and tag[10]=='DT' and tag[11]=='JJ' and tag[12]=='NNS' and tag[13]=='IN' and tag[14]=='PRP'):
+			words.append(word[3])
+			words.append(word[4])
+			words.append(word[8])
+			words.append(word[11])
+	elif(len(tag)==9 and tag[0]=='JJ' and tag[1]=='NN' and tag[2]=='CC' and tag[3]=='VBZ' and tag[4]=='RB' and tag[5]=='VB' and tag[6]=='NN' and tag[7]=='RB' and tag[8]=='JJ'):
+			words.append(word[0])
+			words.append(word[4])
+			words.append(word[5])
+			words.append(word[8])
+	elif(len(tag)==13 and tag[0]=='IN' and tag[1]=='VBG' and tag[2]=='IN' and tag[3]=='NN' and tag[4]=='VBG' and tag[5]=='DT' and tag[6]=='JJ' and tag[7]=='VBZ' and tag[8]=='PRP' and tag[9]=='VBD' and tag[10]=='NNS' and tag[11]=='CD' and tag[12]=='NNS'):
+			words.append(word[0])
+			words.append(word[1])
+			words.append(word[4])
+			words.append(word[6])
+			words.append(word[7])
+			words.append(word[9])
+	elif(len(tag)==7 and tag[0]=='VB' and tag[1]=='DT' and tag[2]=='JJ' and tag[3]=='NN' and tag[4]=='CC' and tag[5]=='RB' and tag[6]=='DT'):
+			words.append(word[0])
+			words.append(word[2])
+			words.append(word[5])
+	elif(len(tag)==22 and tag[0]=='DT' and tag[1]=='NNS' and tag[2]=='VBD' and tag[3]=='DT' and tag[4]=='JJ' and tag[5]=='NN' and tag[6]=='CC' and tag[7]=='JJ' and tag[8]=='VBP' and tag[9]=='PRP' and tag[10]=='VBP' and tag[11]=='RB' and tag[12]=='DT' and tag[13]=='JJS' and tag[14]=='NN' and tag[15]=='VBP' and tag[16]=='VBN' and tag[17]=='IN' and tag[18]=='JJ' and tag[19]=='JJ' and tag[20]=='NNS' and tag[21]=='RB'):
+			words.append(word[4])
+			words.append(word[8])
+			words.append(word[13])
+			words.append(word[16])
+			words.append(word[18])
+			words.append(word[19])
+			words.append(word[21])
+	elif(len(tag)==15 and tag[0]=='PRP' and tag[1]=='VBP' and tag[2]=='TO' and tag[3]=='VB' and tag[4]=='DT' and tag[5]=='NN' and tag[6]=='IN' and tag[7]=='DT' and tag[8]=='JJ' and tag[9]=='NN' and tag[10]=='IN' and tag[11]=='JJ' and tag[12]=='NN' and tag[13]=='VB' and tag[14]=='RB'):
+			words.append(word[3])
+			words.append(word[8])
+			words.append(word[13])
+			words.append(word[14])
+	elif(len(tag)==6 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='DT' and tag[3]=='JJ' and tag[4]=='JJ' and tag[5]=='NN'):
+			words.append(word[3])
+			words.append(word[4])
+	elif(len(tag)==7 and tag[0]=='VBP' and tag[1]=='RB' and tag[2]=='VB' and tag[3]=='IN' and tag[4]=='NN' and tag[5]=='RB' and tag[6]=='VBD'):
+			words.append(word[1])
+			words.append(word[5])
+			words.append(word[6])
+
+
+	elif(len(tag)==4 and tag[0]=='DT' and tag[1]=='VBZ' and tag[2]=='JJ' and tag[3]=='NN'):
+			words.append(word[2])
+			words.append(word[3])
+	####
+	else:
+		add_struct(word,tag,words)
+	polarity_check(words,noun,string,word,tag)

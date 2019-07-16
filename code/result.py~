@@ -1,0 +1,103 @@
+import stop_words
+import textblob
+from textblob import TextBlob
+ex=stop_words.exclamatory
+def resultt(l,nouns,word,string,tag):
+	s=TextBlob(string)
+	textblob_polarity=s.sentiment.polarity
+	c=0
+	v=['VBN','VBR','VB','VBZ','VBG','VBD','VBP']
+	j=['JJ','JJR','JJS','IN','RP','RB']
+	polarity=1
+	sum_polarity=0	
+	m=l.count(-1)
+	n=l.count(-2)
+	for i in word:
+		if i in ex and "!" in string:
+			print "This is exclamatory sentence"
+			c=1
+		if '?' in string:
+			print "This is question "
+			c=1
+			break
+	if(l[0]==-2):
+		sum_polarity=0;
+		polarity=0
+	else:
+		for i in range(len(l)):
+			if (i<len(l)-1) and (tag[i] in v) and (tag[i+1] in j):
+				if(tag[i] == u'VBZ' and word[i]=='is'):
+					continue;
+				else:
+					polarity = polarity * l[i] *2
+					sum_polarity*=2
+			else:	
+				polarity = polarity * l[i]
+				sum_polarity+=l[i]
+	print l
+	print tag
+	print polarity
+	print sum_polarity
+	if("but" in word and "not" in word):
+		polarity*=-1
+		sum_polarity*=-1
+	if('than' in word) or (('as' in word) and ('good' in word)):
+	
+		if ('not' in word):
+			print "According to "+nouns[0]+"--->", 
+			print "Negative"
+			print "According to "+nouns[-1]+"--->",
+			print "Positive"
+		else:	
+			print "According to "+nouns[0]+"--->", 
+			print "POsitive"
+			print "According to "+nouns[-1]+"--->",
+
+			print "Negative"
+	elif(textblob_polarity > 0):
+		print 'positive'
+
+	elif(len(l) == m or len(l)==n or len(l)== m+1 or len(l) == n+1):
+		if("not" in word and polarity>0) and textblob_polarity <=0:
+			print "1Positive"
+		else:
+			print 'Negative'
+	elif(polarity == 2 ):
+		print ('POSITIVI')
+	elif(polarity < 0 ) :
+		if(sum_polarity > 2) and(textblob_polarity > 0):
+			print ('3positive')
+		else:
+			
+			print('negative')
+
+	elif(sum_polarity >= 1 and polarity ==1) or (sum_polarity < 0 and polarity == 1):
+		if("not" not in word):
+			m=l.count(-1)
+			if(m%2==0 and m>=2 and textblob_polarity < 0) :
+				print "Negative"
+			else:
+				print ('4Positve')
+		else:
+			if len(l)==m+1 and textblob_polarity < 0:
+				print "negative"
+			else:
+				print "5Positive"
+	elif(sum_polarity == 0 and polarity == 1 ):
+		if (textblob_polarity == 0):
+		
+			print('	Neutral')
+		elif (textblob_polarity >= 0):
+				print ('positive')
+		else:
+			print ('negative')
+	
+	elif(polarity < 0 or polarity == 1) and (textblob_polarity < 0):
+		print ('Negative') 
+	elif(sum_polarity<0 and polarity>0):
+		print "Negative"	
+	else:
+		print ('Neutral')
+		
+	print textblob_polarity
+

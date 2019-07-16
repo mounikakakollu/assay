@@ -1,0 +1,824 @@
+I={"very": 1,"fortune": 1,"good": 1,"faced": 1,"accident": -1,"went": 1,"followed": 1,"not": -1,"pair": 1,"again": 1,"follwed": 1,"going": 1,"die": -1,"absolutely": 1,"problem": -1,"linking": 1,"tried": 1,"several": 1,"different": -1,"first": 1,"found": 1,"comfortable": 1,"yet": 1,"run": 1,"new": 1,"below": -1,"without": -1,"charging": 1,"bought": 1}
+
+App={"secure": 1,"giving": 1,"fast": 1,"descending": -1,"own": 1,"not": -1,"all": 1,"good": 1,"best": 1,"little": -1,"disappointed": -1,"worst": -1}
+
+Such={"very": 1,"fortune": 1,"good": 1}
+
+Government={"spending": 1,"little": -1,"hell": -1}
+
+Ragging={"not": -1,"ragging": -1,"useful": 1,"dangerous": -1}
+
+
+
+Goverment={"spending": 1,"little": -1}
+
+
+Sense={"ragging": -1,"useful": 1,"dangerous": -1,"dagerous": -1}
+
+
+New={"new": 1,"educational": 1,"set": 1,"up": 1,"economically": 1,"disadvantage": -1,"ever": 1,"quite": 1,"worked": 1,"properly": 1,"none": -1}
+
+
+Product={"not": -1,"fat": -1,"good": 1,"commercial": 1,"rated": 1,"well": 1,"costs": 1,"much": 1,"expect": 1,"work": 1,"far": 1,"better": 1,"greater": 1}
+
+
+Examination={"passed": 1}
+
+
+Criticism={"directed": 1,"against": -1}
+
+
+Sisters={"competitive": 1,"very": 1,"supportive": 1}
+
+
+Days={"competiting": 1,"not": -1}
+
+
+Mass={"not": -1,"copy": -1,"shoudl": 1}
+
+
+Students={"without": -1,"not": -1,"allowed": 1}
+
+
+Shoes={"not": -1,"without": -1,"shoes": 1}
+
+
+Many={"many": 1,"disadvantages": -1,"still": 1,"far": 1,"more": 1,"intelligent": 1,"cleverest": 1}
+
+
+
+Samsung={"better": 1,"not": -1,"good": 1,"bad": -1,"much": 1}
+
+
+Copy={"not": -1,"copy": -1}
+
+
+Same={"same": 1}
+
+
+Flipkart={"betst": 1,"best": 1}
+
+
+App={"descending": -1,"own": 1,"very": 1,"convenient": 1,"easy": 1,"use": 1,"giving": 1,"fast": 1,"secure": 1,"not": -1,"all": 1,"good": 1,"best": 1,"little": -1,"disappointed": -1,"east": 1}
+
+
+Bad={"bad": -1,"very": 1,"buying": 1,"damn": -1,"generic": 1,"not": -1,"all": 1}
+
+
+Good={"good": 1,"looking": 1,"pay": 1,"transfer": 1,"not": -1,"all": 1,"excellent": 1,"very": 1,"up": 1,"everyting": 1,"make": 1,"bulky": -1}
+
+
+Idea={"missed": -1,"numerous": 1,"good": 1}
+
+
+Road={"damaged": -1,"very": 1,"dirty": -1,"narrow": -1}
+
+
+Fine={"ignore": -1,"ignored": -1}
+
+
+
+Security={"really": 1,"strict": 1}
+
+
+Heavy={"heavy": -1,"fell": -1,"down": -1,"cause": 1,"accidents": -1,"left": -1}
+
+
+Follow={"strictly": 1,"follow": 1}
+
+
+
+Backroads={"comfortable": 1,"travel": 1}
+
+
+Careful={"careful": 1,"while": 0,"crossing": 1,"crashed": -1,"accident": -1,"overheated": -1,"not": -1,"meshing": 1,"properly": 1,"drive": 1,"without": -1,"plan": 1,"use": 1,"about": 1,"well": 1,"included": 1,"make": 1,"sure": 1,"never": -1,"run": 1,"recommended": 1}
+
+
+
+Bus={"arrived": 1,"lately": -1,"missed": -1,"runs": 1,"less": -1,"frequently": 1,"fell": -1,"down": -1}
+
+
+
+
+Pay={"not": -1}
+
+
+Brakes={"not": -1,"without": -1}
+
+
+Submit={"fastly": 1}
+
+
+Ice={"skidden": -1}
+
+
+
+We={"crashed": -1}
+
+
+Helicopter={"crashed": -1}
+
+
+Engine={"making": 1,"grinding": -1,"suddenly": 1,"died": -1}
+
+
+
+Water={"leaked": -1,"wate": 0,"booking": 1,"cloth": 1}
+
+
+Eingine={"suddenly": 1,"died": -1,"making": 1,"grinding": -1}
+
+
+
+Lorry={"carrying": 1,"heavy": -1}
+
+
+Bike={"riding": 1,"without": -1,"risky": -1}
+
+
+Building={"not": -1,"come": 1,"into": 1,"unless": 0}
+
+
+
+
+
+
+
+
+
+
+
+
+Mobile={"bad": -1,"not": -1}
+
+
+
+Lenovo={"working": 1,"efficiently": 1}
+
+
+Apple={"working": 1,"efficiently": 1,"much": 1,"better": 1,"good": 1}
+
+
+
+
+
+
+Campus={"not": -1,"ragging": -1}
+
+
+
+Battery={"draining": -1,"fast": 1,"darining": -1,"slow": -1,"not": -1,"excellent": 1}
+
+
+Trains={"moving": 1,"fast": 1}
+
+
+Accident={"accident": -1,"not": -1}
+
+
+Accidents={"not": -1,"accidents": -1}
+
+
+
+
+
+
+Cashless={"best": 1,"useful": 1}
+
+
+Online={"best": 1,"online": 1}
+
+
+Useful={"very": 1,"useful": 1}
+
+
+Suitable={"most": 1,"suitable": 1,"cashless": 1}
+
+
+Needy={"most": 1,"needy": 1}
+
+
+
+
+Best={"best": 1}
+
+
+Trusted={"trusted": 1}
+
+
+Waste={"waste": -1,"booking": 1,"cloth": 1}
+
+
+%={"not": -1,"successful": 1}
+
+
+
+Worst={"worst": -1}
+
+
+
+Limited={"limited": -1,"great": 1}
+
+
+
+
+Plenty={"die": -1}
+
+
+
+Smile={"gave": 1}
+
+
+Sarcastic={"gave": 1,"sarcastic": -1}
+
+
+Dont={"bother": -1,"living": 1,"happily": 1,"even": 0,"after": 1,"not": -1,"wrongly": -1,"advertised": 1}
+
+
+
+
+
+
+
+Happy={"happy": 1,"not": -1}
+
+
+
+Methods={"existing": 1,"expensive": -1,"inefficient": -1}
+
+
+Price={"fallen": -1,"recently": 1}
+
+
+Commercial={"commercial": 1,"looks": 1,"very": 1,"promising": 1,"not": -1,"forget": -1}
+
+
+Law={"obliges": 1,"pay": 1,"decent": -1}
+
+
+
+
+Introduction={"new": 1,"working": 1,"dramatically": 1,"improved": 1}
+
+
+Productivity={"down": -1,"last": -1}
+
+
+Investors={"serously": -1,"worried": -1,"began": 1,"crash": -1,"seriously": -1}
+
+
+Stock={"moved": 1,"ahead": 1,"slightly": 1,"active": 1,"crash": -1,"marked": 1,"severe": -1,"depression": -1,"depressin": -1}
+
+
+
+
+Percentage={"less": -1}
+
+
+Exams={"fail": -1,"resit": 1}
+
+
+Intelligent={"obviously": 1,"very": 1,"intelligent": 1,"difficult": -1,"follow": 1,"abviously": 1,"follw": 1}
+
+
+
+Brilliant={"not": -1,"brilliant": 1,"worth": 1,"good": 1}
+
+
+Classic={"classic": 1,"ked": 1,"not": -1,"without": -1,"shoes": 1}
+
+
+Edith={"seem": 1,"crazy": -1,"quite": 1,"clever": 1,"really": 1}
+
+
+
+Stuff={"best": 1,"cheapest": 1}
+
+
+Paytm={"most": 1,"successful": 1,"indian": 1,"best": 1,"online": 1,"fast": 1}
+
+
+Trustable={"trustable": 1}
+
+
+Site={"giving": 1,"nice": 1}
+
+
+
+
+Experience={"worst": -1}
+
+
+Overall={"overall": 1,"good": 1}
+
+
+Usefull={"very": 1,"usefull": 1}
+
+
+Awesome={"awesome": 1}
+
+
+Nice={"nice": 1,"online": 1,"unlike": -1,"cheap": -1}
+
+
+
+
+Own={"descending": -1,"own": 1}
+
+
+Useless={"useless": -1}
+
+
+Great={"great": 1,"not": -1,"all": 1,"problem": -1,"prize": 1,"little": -1}
+
+
+Friendly={"user": 1,"friendly": 1,"loved": 1,"great": 1,"wonderful": 1,"imaginative": 1,"imanginative": 1}
+
+
+Convenient={"very": 1,"convenient": 1,"easy": 1,"use": 1}
+
+
+Payment={"best": 1}
+
+
+Indian={"indian": 1,"popular": 1,"electronic": 1}
+
+
+
+Reply={"not": -1,"paytm": 1,"credited": 1}
+
+
+Secure={"highly": 1,"fast": 1,"secure": 1,"best": 1}
+
+
+
+
+Disappointed={"best": 1,"little": -1,"disappointed": -1}
+
+
+Easy={"very": 1,"easy": 1,"cashless": 1,"unfortunately": -1,"accidently": -1,"activate": 1,"gentle-touch": 1,"while": 1,"listening": 1}
+
+
+
+Successful={"most": 1,"successful": 1,"indian": 1}
+
+
+
+Shopping={"amazing": 1,"worst": -1}
+
+
+Roads={"blocked": -1,"slow": -1}
+
+
+Traffic={"not": -1,"ignore": -1}
+
+
+
+
+Late={"late": -1,"not": -1,"consider": 1,"stopped": -1,"during": 1,"holiday": 1,"off": -1,"rick": 1,"loved": 1}
+
+
+
+
+Way={"not": -1,"plug": 0,"unless": 0}
+
+
+
+Conversations={"tied": -1,"charger": 0,"lasting": -1,"more": 1,"major": 1}
+
+
+
+
+Website={"best": 1}
+
+
+
+Form={"descending": -1,"own": 1}
+
+
+
+
+Wow={"loved": 1}
+
+
+Crust={"not": -1,"good": 1}
+
+
+Tasty={"not": -1,"tasty": 1,"just": 1}
+
+
+
+Selection={"great": 1,"eas": 0}
+
+
+Angry={"getting": 1,"angry": -1,"want": 1}
+
+
+Honeslty={"not": -1,"taste": 1,"fresh": 1}
+
+
+Potatoes={"like": 1,"tell": 1,"made": 1,"up": 1,"ahead": 1,"kept": 1,"under": 1}
+
+
+Fries={"great": 1,"too": 1}
+
+
+Sercive={"very": 1,"prompt": 1}
+
+
+Would={"not": -1,"back": -1}
+
+
+Cashier={"not": -1,"ever": 1,"say": 1,"still": 1,"ended": -1,"up": 1,"overpriced": -1}
+
+
+
+
+
+Recommended={"highly": 1,"recommended": 1}
+
+
+Waitress={"little": -1,"slow": -1}
+
+
+Place={"not": -1,"worth": 1,"let": 1,"alone": -1,"vegas": 1,"clicks": 1,"makes": 1,"wonder": 1,"long": 1,"last": -1}
+
+
+Did={"not": -1,"like": 1,"all": 1}
+
+
+Food={"amazing": 1}
+
+
+Service={"also": 1,"cute": 1,"fast": 1,"secure": 1,"very": 1,"prompt": 1}
+
+
+
+So={"perfomed": 1,"performed": 1}
+
+
+Right={"right": 1,"red": 1,"ohhh": 1,"good": 1,"gon": 1}
+
+
+Salad={"never": -1,"brought": 1,"asked": 1}
+
+
+Hole={"great": 1,"mexican": 1,"friendly": 1}
+
+
+Hour={"took": 1,"get": 1,"luke": 1,"running": 1,"around": 1,"like": 1,"totally": 1,"overwhelmed": -1,"overhelmed": 1}
+
+
+She={"fell": -1,"down": -1}
+
+
+Somany={"somany": 1,"disadvantages": -1}
+
+
+
+
+Examinations={"passed": 1}
+
+
+
+Fllipkart={"best": 1}
+
+
+Amount={"waste": -1,"booking": 1,"cloth": 1}
+
+
+
+Feeling={"awesome": 1}
+
+
+Paytmgood={"everthing": 1}
+
+
+Moar={"suitable": 1}
+
+
+Descending={"own": 1}
+
+
+Mush={"highly": 1,"secure": 1}
+
+
+Customer={"value": 1}
+
+
+
+
+
+Taste={"honestly": 1,"didnot": -1,"fresh": 1}
+
+
+
+
+
+
+
+Salmon={"worst": -1}
+
+
+Combos={"like": 1,"decent": -1}
+
+
+Final={"like": 1,"final": -1}
+
+
+Finall={"like": 1}
+
+
+
+
+Overaoverall={"like": 1}
+
+
+Only={"redeeming": 1,"very": 1,"inexpensive": 1,"standard": 1,"little": -1,"low": -1,"even": 0,"turned": 1,"up": 1}
+
+
+Ample={"ample": 1,"good": 1}
+
+
+Poor={"poor": -1,"made": 1,"feel": 1,"like": 1,"stupid": -1,"every": 1,"came": 1}
+
+
+First={"first": 1,"hiro": 1,"work": 1,"hard": -1}
+
+
+Deal={"not": -1,"good": 1,"enough": 0,"drag": -1,"into": 1,"again": 1}
+
+
+Positive={"positive": 1,"very": 1,"attentive": 1,"provided": 1,"great": 1}
+
+
+
+Burger={"good": 1,"cooked": 1,"just": 1}
+
+
+Sandwich={"want": 1,"just": 1}
+
+
+Side={"greek": 1,"tasty": 1,"very": 1,"refreshing": 1}
+
+
+Th={"ordered": 1,"th": 1,"rare": -1,"pink": 1,"nice": 1}
+
+
+Duck={"ordered": 1,"rare": -1,"pink": 1,"nice": 1}
+
+
+Husband={"came": 1,"running": 1,"after": 1,"realized": 1,"left": 1}
+
+
+
+\he={"came": 1,"running": 1,"after": 1,"realized": 1}
+
+
+Chow={"good": 1}
+
+
+Horrible={"horrible": -1,"towards": 1,"talk": 1,"down": -1,"dont": -1,"enjoy": 1}
+
+
+Portion={"huge": 1}
+
+
+
+
+
+
+
+
+
+
+
+
+Work={"up": 1}
+
+
+They={"refused": -1,"refund": 1,"replace": 1,"refuse":-1,"replaced": 1}
+
+
+
+
+Defective={"defective": -1}
+
+
+
+
+
+Holster={"arrived": 1,"not": -1,"match": 1}
+
+
+
+
+Phone={"adorable": 1,"very": 1,"sturdy": 1,"perhaps": 0,"defective": -1,"not": -1,"hear": 1,"use": 1,"recognize": 1,"pretty": 1,"never": -1,"large": 1,"dropped": -1,"submerged": -1,"still": 1,"works": 1,"great": 1,"hold": 1,"particular": 1,"clearly": 1}
+
+
+Hard={"never": -1,"know": 1,"pushed": 1,"hard": -1,"enough": 0,"want": 1,"not": -1}
+
+
+Sound={"clear": 1,"talk": 1,"amazed": 1}
+
+
+
+
+
+
+
+Iam={"not": -1,"impressed": 1,"recommend": 1,"iam": 1,"very": 1,"good": 1}
+
+
+Thanks={"again": 1,"amazon": 1,"having": 1,"need": 1,"good": 1}
+
+
+
+Works={"great": 1}
+
+
+Really={"really": 1,"ugly": -1,"not": -1}
+
+
+Hhorrible={"hhorrible": -1,"switch": 1}
+
+
+Noise={"incrediable": 1}
+
+
+
+Razr={"good": 1}
+
+
+
+
+Wrong={"wrong": -1}
+
+
+
+
+
+Drop={"about": 1,"above": 1,"cracked": -1,"not": -1,"impressed": 1,"laughing": 1}
+
+
+Ll={"about": 1,"above": 1,"cracked": -1,"not": -1,"impressed": 1,"laughing": 1}
+
+
+Range={"bluetooth": 1,"good": 1,"few": 1,"ago": 1,"got": 1,"carried": 1,"without": -1}
+
+
+Small={"small": -1,"sleek": 1,"impressive": 1,"looking": 1,"practical": 1,"ample": 1}
+
+
+Eargels={"channel": 1,"directly": 1,"into": 1,"seem": 1,"increase": 1,"buds": 1,"play": 1,"working": 1}
+
+
+None={"new": 1,"ever": 1,"quite": 1,"worked": 1,"properly": 1}
+
+
+
+
+
+
+
+
+Case={"flimsy": -1,"not": -1}
+
+
+Print={"flimsy": -1,"not": -1}
+
+
+Jabra={"own": 1,"very": 1,"happy": 1,"especially": 1,"outgoing": -1,"better": 1}
+
+
+Commerical={"commerical": 1,"looks": 1,"very": 1,"promising": 1}
+
+
+
+Colleges={"not": -1,"ragging": -1}
+
+
+
+
+Temple={"not": -1,"with": 1,"shoes": -1}
+
+
+Briiliant={"not": -1,"briiliant": 1,"worth": 1}
+
+
+
+
+
+
+
+
+
+
+Highly={"highly": 1,"secure": 1}
+
+
+Customers={"value": 1}
+
+
+
+
+
+
+
+
+
+
+Desing={"very": 1,"odd": -1,"not": -1,"comfortable": 1}
+
+
+
+
+Buyer={"very": 1,"careful": 1}
+
+
+Setup={"not": -1,"simpler": 1}
+
+
+House={"getting": 1,"dropped": -1,"upstaris": 1,"not": -1}
+
+
+
+
+
+
+Thing={"set": 1}
+
+
+
+
+Months={"after": 1,"just": 1,"went": 1,"sudden": -1}
+
+
+
+Little={"little": -1,"think": 1,"thats": 1,"rocks": 1,"oozes": 1,"down": -1,"embedded": 1,"sleek": 1}
+
+
+Camera={"rated": 1,"impressive": 1,"fall": -1,"well": 1,"below": -1,"relatively": 1,"images": 1,"renders": -1}
+
+
+
+Huge={"huge": 1,"unless": 0,"not": -1,"using": 1,"correctly": 1,"think": 1,"flaw": -1}
+
+
+
+
+
+
+
+Short={"short": -1,"little": -1}
+
+
+
+Bmw={"even": 0,"fairly": 1,"quiet": 1,"hearing": 1,"saying": 1,"havd": 1,"trouble": -1,"\even": 1}
+
+
+
+
+Big={"big": 1,"front": 1,"pause": 0,"skip": -1,"lock": 1,"after": 1,"few": 1,"cover": 1}
+
+
+
+Design={"very": 1,"odd": -1,"not": -1,"comfortable": 1}
+
+
+
+
+
+
+
+
+Simple={"simple": 1,"little": -1,"use": 1,"unacceptible": -1}
+
+
+
+
+Verizon={"after": 1,"arguing": -1,"regarding": 1,"dropped": -1,"calls": 1,"returned": -1}
+
+
+
+
+
+Headphones={"great": 1,"think": 1,"best": 1,"made": 1,"last": -1,"several": 1,"seriously": -1}
+
+
+Different={"buy": 1,"different": -1,"not": -1}
+
+
+
+D807={"not": -1,"wrongly": -1,"advertised": 1}
+
+
+
+
+
+Negative={"negative": -1}
+
+
+Motorola={"went": 1,"followed": 1,"not": -1,"pair": 1,"again": 1}
+
+

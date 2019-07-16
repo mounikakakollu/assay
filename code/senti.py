@@ -1,0 +1,11 @@
+f=open("SentiWordNet_3.0.0_20130122.txt","r").read()
+f=f.split("\n")
+f1=open("swm.txt","w")
+for i in f:
+	index=i.find("\t")
+	index=i.find("\t",index+1)
+	index1=i.find("\t",index+1)
+	index2=i.find("\t",index1+1)
+	index3=i.find("\t",index2+1)
+	f1.write(i[index+1:index3-1]+"\n")
+f1.close()
