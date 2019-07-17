@@ -14,6 +14,8 @@ neutral=reviews1.neutral
 p=reviews1.positive
 n=reviews1.negative
 import sys
+import matplotlib
+matplotlib.use('Agg')
 reload(sys)
 sys.setdefaultencoding('utf-8')
 f=open("../data_sets/stopwords.txt","r").read()
