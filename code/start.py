@@ -9,7 +9,7 @@ f2=f2.split("\n")
 f3=f3.split("\n")
 f4=f4.split("\n")
 from domain import *
-limit=500
+limit=100
 while(True):
 	t=0
 	f5=open("../test.txt","w")
