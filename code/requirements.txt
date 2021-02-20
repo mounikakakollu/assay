@@ -3,7 +3,7 @@ cycler==0.10.0
 jellyfish==0.6.1
 kiwisolver==1.1.0
 matplotlib==2.2.4
-nltk==3.4.4
+nltk==3.4.5
 numpy==1.16.4
 pyenchant==2.0.0
 pyparsing==2.4.0
